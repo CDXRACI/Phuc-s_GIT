@@ -1,0 +1,225 @@
+ARM GAS  /tmp/cc5K6pj1.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"GPIO_Config.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SETTING_ON_GPIO_PIN_PA5,"ax",%progbits
+  20              		.align	1
+  21              		.global	SETTING_ON_GPIO_PIN_PA5
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	SETTING_ON_GPIO_PIN_PA5:
+  27              	.LFB130:
+  28              		.file 1 "Core/Src/GPIO_Config.c"
+   1:Core/Src/GPIO_Config.c **** #include "GPIO_Config.h"
+   2:Core/Src/GPIO_Config.c **** 
+   3:Core/Src/GPIO_Config.c **** void SETTING_ON_GPIO_PIN_PA5(void)
+   4:Core/Src/GPIO_Config.c **** {
+  29              		.loc 1 4 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+   5:Core/Src/GPIO_Config.c **** 
+   6:Core/Src/GPIO_Config.c **** RCC_AHB1ENR_RE |= (1<<0);
+  34              		.loc 1 6 1 view .LVU1
+  35              		.loc 1 6 16 is_stmt 0 view .LVU2
+  36 0000 094B     		ldr	r3, .L2
+  37 0002 D3F83028 		ldr	r2, [r3, #2096]
+  38 0006 42F00102 		orr	r2, r2, #1
+  39 000a C3F83028 		str	r2, [r3, #2096]
+   7:Core/Src/GPIO_Config.c **** RCC_APB1ENR_RE |= (1<<28);
+  40              		.loc 1 7 1 is_stmt 1 view .LVU3
+  41              		.loc 1 7 16 is_stmt 0 view .LVU4
+  42 000e D3F84028 		ldr	r2, [r3, #2112]
+  43 0012 42F08052 		orr	r2, r2, #268435456
+  44 0016 C3F84028 		str	r2, [r3, #2112]
+   8:Core/Src/GPIO_Config.c **** RCC_APB2ENR_RE |= (1<<14);
+  45              		.loc 1 8 1 is_stmt 1 view .LVU5
+  46              		.loc 1 8 16 is_stmt 0 view .LVU6
+  47 001a D3F84428 		ldr	r2, [r3, #2116]
+  48 001e 42F48042 		orr	r2, r2, #16384
+  49 0022 C3F84428 		str	r2, [r3, #2116]
+   9:Core/Src/GPIO_Config.c **** 
+ARM GAS  /tmp/cc5K6pj1.s 			page 2
+
+
+  10:Core/Src/GPIO_Config.c **** };
+  50              		.loc 1 10 1 view .LVU7
+  51 0026 7047     		bx	lr
+  52              	.L3:
+  53              		.align	2
+  54              	.L2:
+  55 0028 00300240 		.word	1073885184
+  56              		.cfi_endproc
+  57              	.LFE130:
+  59              		.section	.text.GPIO_PIN_SET_LOGIC_PA5,"ax",%progbits
+  60              		.align	1
+  61              		.global	GPIO_PIN_SET_LOGIC_PA5
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  66              	GPIO_PIN_SET_LOGIC_PA5:
+  67              	.LFB131:
+  11:Core/Src/GPIO_Config.c **** 
+  12:Core/Src/GPIO_Config.c **** void GPIO_PIN_SET_LOGIC_PA5(void)
+  13:Core/Src/GPIO_Config.c **** {
+  68              		.loc 1 13 1 is_stmt 1 view -0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72 0000 10B5     		push	{r4, lr}
+  73              	.LCFI0:
+  74              		.cfi_def_cfa_offset 8
+  75              		.cfi_offset 4, -8
+  76              		.cfi_offset 14, -4
+  14:Core/Src/GPIO_Config.c **** 
+  15:Core/Src/GPIO_Config.c **** 
+  16:Core/Src/GPIO_Config.c **** GPIOA_MODE         |= ((0<<11) | (1<<10));
+  77              		.loc 1 16 1 view .LVU9
+  78              		.loc 1 16 20 is_stmt 0 view .LVU10
+  79 0002 0B4C     		ldr	r4, .L6
+  80 0004 2368     		ldr	r3, [r4]
+  81 0006 43F48063 		orr	r3, r3, #1024
+  82 000a 2360     		str	r3, [r4]
+  17:Core/Src/GPIO_Config.c **** GPIOA_TYPER        &= ~(1<<5);
+  83              		.loc 1 17 1 is_stmt 1 view .LVU11
+  84              		.loc 1 17 20 is_stmt 0 view .LVU12
+  85 000c 6368     		ldr	r3, [r4, #4]
+  86 000e 23F02003 		bic	r3, r3, #32
+  87 0012 6360     		str	r3, [r4, #4]
+  18:Core/Src/GPIO_Config.c **** GPIOA_OSPEEDR      |= ((1<<11)  |(1<<10));
+  88              		.loc 1 18 1 is_stmt 1 view .LVU13
+  89              		.loc 1 18 20 is_stmt 0 view .LVU14
+  90 0014 A368     		ldr	r3, [r4, #8]
+  91 0016 43F44063 		orr	r3, r3, #3072
+  92 001a A360     		str	r3, [r4, #8]
+  19:Core/Src/GPIO_Config.c **** HAL_Delay(1000);
+  93              		.loc 1 19 1 is_stmt 1 view .LVU15
+  94 001c 4FF47A70 		mov	r0, #1000
+  95 0020 FFF7FEFF 		bl	HAL_Delay
+  96              	.LVL0:
+  20:Core/Src/GPIO_Config.c **** GPIO_BITSET_RESET  |= (1<<5);
+  97              		.loc 1 20 1 view .LVU16
+ARM GAS  /tmp/cc5K6pj1.s 			page 3
+
+
+  98              		.loc 1 20 20 is_stmt 0 view .LVU17
+  99 0024 A369     		ldr	r3, [r4, #24]
+ 100 0026 43F02003 		orr	r3, r3, #32
+ 101 002a A361     		str	r3, [r4, #24]
+  21:Core/Src/GPIO_Config.c **** 
+  22:Core/Src/GPIO_Config.c **** };
+ 102              		.loc 1 22 1 view .LVU18
+ 103 002c 10BD     		pop	{r4, pc}
+ 104              	.L7:
+ 105 002e 00BF     		.align	2
+ 106              	.L6:
+ 107 0030 00000240 		.word	1073872896
+ 108              		.cfi_endproc
+ 109              	.LFE131:
+ 111              		.section	.text.GPIO_PIN_LOW_LOGIC_PA5,"ax",%progbits
+ 112              		.align	1
+ 113              		.global	GPIO_PIN_LOW_LOGIC_PA5
+ 114              		.syntax unified
+ 115              		.thumb
+ 116              		.thumb_func
+ 118              	GPIO_PIN_LOW_LOGIC_PA5:
+ 119              	.LFB132:
+  23:Core/Src/GPIO_Config.c **** 
+  24:Core/Src/GPIO_Config.c **** 
+  25:Core/Src/GPIO_Config.c **** void GPIO_PIN_LOW_LOGIC_PA5(void)
+  26:Core/Src/GPIO_Config.c **** {
+ 120              		.loc 1 26 1 is_stmt 1 view -0
+ 121              		.cfi_startproc
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124 0000 10B5     		push	{r4, lr}
+ 125              	.LCFI1:
+ 126              		.cfi_def_cfa_offset 8
+ 127              		.cfi_offset 4, -8
+ 128              		.cfi_offset 14, -4
+  27:Core/Src/GPIO_Config.c **** 
+  28:Core/Src/GPIO_Config.c **** 
+  29:Core/Src/GPIO_Config.c **** GPIOA_MODE         |= ((0<<11) | (1<<10));
+ 129              		.loc 1 29 1 view .LVU20
+ 130              		.loc 1 29 20 is_stmt 0 view .LVU21
+ 131 0002 0B4C     		ldr	r4, .L10
+ 132 0004 2368     		ldr	r3, [r4]
+ 133 0006 43F48063 		orr	r3, r3, #1024
+ 134 000a 2360     		str	r3, [r4]
+  30:Core/Src/GPIO_Config.c **** GPIOA_TYPER        &= ~(1<<5);
+ 135              		.loc 1 30 1 is_stmt 1 view .LVU22
+ 136              		.loc 1 30 20 is_stmt 0 view .LVU23
+ 137 000c 6368     		ldr	r3, [r4, #4]
+ 138 000e 23F02003 		bic	r3, r3, #32
+ 139 0012 6360     		str	r3, [r4, #4]
+  31:Core/Src/GPIO_Config.c **** GPIOA_OSPEEDR      |= ((1<<11)  |(1<<10));
+ 140              		.loc 1 31 1 is_stmt 1 view .LVU24
+ 141              		.loc 1 31 20 is_stmt 0 view .LVU25
+ 142 0014 A368     		ldr	r3, [r4, #8]
+ 143 0016 43F44063 		orr	r3, r3, #3072
+ 144 001a A360     		str	r3, [r4, #8]
+  32:Core/Src/GPIO_Config.c **** HAL_Delay(1000);
+ARM GAS  /tmp/cc5K6pj1.s 			page 4
+
+
+ 145              		.loc 1 32 1 is_stmt 1 view .LVU26
+ 146 001c 4FF47A70 		mov	r0, #1000
+ 147 0020 FFF7FEFF 		bl	HAL_Delay
+ 148              	.LVL1:
+  33:Core/Src/GPIO_Config.c **** GPIO_BITSET_RESET  |= (1<<21);
+ 149              		.loc 1 33 1 view .LVU27
+ 150              		.loc 1 33 20 is_stmt 0 view .LVU28
+ 151 0024 A369     		ldr	r3, [r4, #24]
+ 152 0026 43F40013 		orr	r3, r3, #2097152
+ 153 002a A361     		str	r3, [r4, #24]
+  34:Core/Src/GPIO_Config.c **** 
+  35:Core/Src/GPIO_Config.c **** };
+ 154              		.loc 1 35 1 view .LVU29
+ 155 002c 10BD     		pop	{r4, pc}
+ 156              	.L11:
+ 157 002e 00BF     		.align	2
+ 158              	.L10:
+ 159 0030 00000240 		.word	1073872896
+ 160              		.cfi_endproc
+ 161              	.LFE132:
+ 163              		.text
+ 164              	.Letext0:
+ 165              		.file 2 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default
+ 166              		.file 3 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
+ 167              		.file 4 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  /tmp/cc5K6pj1.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 GPIO_Config.c
+     /tmp/cc5K6pj1.s:20     .text.SETTING_ON_GPIO_PIN_PA5:0000000000000000 $t
+     /tmp/cc5K6pj1.s:26     .text.SETTING_ON_GPIO_PIN_PA5:0000000000000000 SETTING_ON_GPIO_PIN_PA5
+     /tmp/cc5K6pj1.s:55     .text.SETTING_ON_GPIO_PIN_PA5:0000000000000028 $d
+     /tmp/cc5K6pj1.s:60     .text.GPIO_PIN_SET_LOGIC_PA5:0000000000000000 $t
+     /tmp/cc5K6pj1.s:66     .text.GPIO_PIN_SET_LOGIC_PA5:0000000000000000 GPIO_PIN_SET_LOGIC_PA5
+     /tmp/cc5K6pj1.s:107    .text.GPIO_PIN_SET_LOGIC_PA5:0000000000000030 $d
+     /tmp/cc5K6pj1.s:112    .text.GPIO_PIN_LOW_LOGIC_PA5:0000000000000000 $t
+     /tmp/cc5K6pj1.s:118    .text.GPIO_PIN_LOW_LOGIC_PA5:0000000000000000 GPIO_PIN_LOW_LOGIC_PA5
+     /tmp/cc5K6pj1.s:159    .text.GPIO_PIN_LOW_LOGIC_PA5:0000000000000030 $d
+
+UNDEFINED SYMBOLS
+HAL_Delay
