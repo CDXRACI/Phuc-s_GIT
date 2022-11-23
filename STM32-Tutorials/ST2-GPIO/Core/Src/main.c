@@ -85,7 +85,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-SETTING_ON_GPIO_PIN_PA5();
+SETTING_ON_GPIO_PIN_PA();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -94,8 +94,8 @@ SETTING_ON_GPIO_PIN_PA5();
   {
     /* USER CODE END WHILE */
 
-GPIO_PIN_SET_LOGIC_PA5();
-GPIO_PIN_LOW_LOGIC_PA5();
+GPIO_PIN_INPUT_PC13();
+// GPIO_PIN_LOW_LOGIC_PA5();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -153,7 +153,7 @@ void SystemClock_Config(void)
   */
 static void MX_GPIO_Init(void)
 {
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  // GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   // /* GPIO Ports Clock Enable */
   // __HAL_RCC_GPIOH_CLK_ENABLE();
@@ -162,12 +162,12 @@ static void MX_GPIO_Init(void)
   // /*Configure GPIO pin Output Level */
   // HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 
-  // /*Configure GPIO pin : PA8 */
+  /*Configure GPIO pin : PA8 */
   // GPIO_InitStruct.Pin = GPIO_PIN_6;
   // GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   // GPIO_InitStruct.Pull = GPIO_NOPULL;
   // GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  // HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  //  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   //   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 

@@ -37,6 +37,7 @@ extern "C" {
 #define GPIO_BITSET_RESET       (*((uint32_t *)0x40020018))
 
 
+
 #endif
 
 typedef enum STATE_OF_LOGIC
@@ -48,20 +49,40 @@ UK_LOGIC   = 2
 
 }__STATE_OF_LOGIC;
 
-void SETTING_ON_GPIO_PIN_PA5(void);
+void SETTING_ON_GPIO_PIN_PA(void);
 
 void GPIO_PIN_SET_LOGIC_PA5(void);
 
 void GPIO_PIN_LOW_LOGIC_PA5(void);
 
+void GPIO_PIN_INPUT_PC13(void);
+
 typedef struct GPIO_CONFIG
 {
 
+volatile uint32_t GPIO_MODE_RE;             //0x00
+volatile uint32_t GPIO_TYPER_RE;            //0x04
+volatile uint32_t GPIO_OSPEEDR_RE;          //0x08
+volatile uint32_t GPIO_PULLR_RE;            //0X0C
+volatile uint32_t GPIO_IDR_RE;              //0X10
+volatile uint32_t GPIO_ODR_RE;              //0x14
+volatile uint32_t GPIO_BITSET_BITRESET;     //0x18
+volatile uint32_t GPIO_LOCK_RE;             //0x1C
+volatile uint32_t GPIO_ALTF_LOW_RE;         //0x20
+volatile uint32_t GPIO_ALTF_HIGH_RE;        //0x24
 
 
+}__GPIO_CONFIG;
 
 
-};
+#ifdef STM32F411RE
+#define GPIOA_RE                ((__GPIO_CONFIG *)0x40020000)
+#define GPIOB_RE                ((__GPIO_CONFIG *)0x40020400)
+#define GPIOC_RE                ((__GPIO_CONFIG *)0x40020800)
+#define GPIOD_RE                ((__GPIO_CONFIG *)0x40020C00)
+#endif
+
+
 
 #ifdef __cplusplus
 }
