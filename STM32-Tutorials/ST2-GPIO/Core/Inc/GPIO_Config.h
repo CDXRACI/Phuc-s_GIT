@@ -55,7 +55,7 @@ void GPIO_PIN_SET_LOGIC_PA5(void);
 
 void GPIO_PIN_LOW_LOGIC_PA5(void);
 
-void GPIO_PIN_INPUT_PC13(void);
+void GPIO_PIN_INPUT_PC0(void);
 
 typedef struct GPIO_CONFIG
 {
@@ -78,7 +78,7 @@ volatile uint32_t GPIO_ALTF_HIGH_RE;        //0x24
 #ifdef STM32F411RE
 #define GPIOA_RE                ((__GPIO_CONFIG *)0x40020000)
 #define GPIOB_RE                ((__GPIO_CONFIG *)0x40020400)
-#define GPIOC_RE                ((__GPIO_CONFIG *)0x40020800)
+#define GPIOC_RE                ((__GPIO_CONFIG *)0x40020800) 
 #define GPIOD_RE                ((__GPIO_CONFIG *)0x40020C00)
 #endif
 

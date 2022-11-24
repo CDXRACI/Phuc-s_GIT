@@ -552,7 +552,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 build/GPIO_Config.o
  .bss           0x0000000000000000        0x0 build/GPIO_Config.o
  .text.GPIO_PIN_SET_LOGIC_PA5
-                0x0000000000000000       0x44 build/GPIO_Config.o
+                0x0000000000000000       0x80 build/GPIO_Config.o
  .text.GPIO_PIN_LOW_LOGIC_PA5
                 0x0000000000000000       0x34 build/GPIO_Config.o
  .text          0x0000000000000000       0x14 build/startup_stm32f411xe.o
@@ -753,9 +753,9 @@ LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-
  .text.SETTING_ON_GPIO_PIN_PA
                 0x0000000008000db0       0x34 build/GPIO_Config.o
                 0x0000000008000db0                SETTING_ON_GPIO_PIN_PA
- .text.GPIO_PIN_INPUT_PC13
+ .text.GPIO_PIN_INPUT_PC0
                 0x0000000008000de4       0x60 build/GPIO_Config.o
-                0x0000000008000de4                GPIO_PIN_INPUT_PC13
+                0x0000000008000de4                GPIO_PIN_INPUT_PC0
  .text.Reset_Handler
                 0x0000000008000e44       0x50 build/startup_stm32f411xe.o
                 0x0000000008000e44                Reset_Handler
@@ -987,7 +987,7 @@ LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-
 LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libm.a
 LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a
 
-.debug_info     0x0000000000000000     0x3a80
+.debug_info     0x0000000000000000     0x3aaa
  .debug_info    0x0000000000000000      0x647 build/main.o
  .debug_info    0x0000000000000647      0x15a build/stm32f4xx_it.o
  .debug_info    0x00000000000007a1      0x31d build/stm32f4xx_hal_msp.o
@@ -995,8 +995,8 @@ LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-
  .debug_info    0x00000000000016d1     0x10e4 build/stm32f4xx_hal_cortex.o
  .debug_info    0x00000000000027b5      0xa66 build/stm32f4xx_hal.o
  .debug_info    0x000000000000321b      0x5e5 build/system_stm32f4xx.o
- .debug_info    0x0000000000003800      0x25e build/GPIO_Config.o
- .debug_info    0x0000000000003a5e       0x22 build/startup_stm32f411xe.o
+ .debug_info    0x0000000000003800      0x288 build/GPIO_Config.o
+ .debug_info    0x0000000000003a88       0x22 build/startup_stm32f411xe.o
 
 .debug_abbrev   0x0000000000000000      0xdd2
  .debug_abbrev  0x0000000000000000      0x1e7 build/main.o
@@ -1050,7 +1050,7 @@ LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-
  .debug_ranges  0x0000000000000300       0x28 build/GPIO_Config.o
  .debug_ranges  0x0000000000000328       0x20 build/startup_stm32f411xe.o
 
-.debug_line     0x0000000000000000     0x22d5
+.debug_line     0x0000000000000000     0x2300
  .debug_line    0x0000000000000000      0x30c build/main.o
  .debug_line    0x000000000000030c      0x177 build/stm32f4xx_it.o
  .debug_line    0x0000000000000483      0x15a build/stm32f4xx_hal_msp.o
@@ -1058,27 +1058,27 @@ LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-
  .debug_line    0x00000000000010ed      0x778 build/stm32f4xx_hal_cortex.o
  .debug_line    0x0000000000001865      0x565 build/stm32f4xx_hal.o
  .debug_line    0x0000000000001dca      0x250 build/system_stm32f4xx.o
- .debug_line    0x000000000000201a      0x245 build/GPIO_Config.o
- .debug_line    0x000000000000225f       0x76 build/startup_stm32f411xe.o
+ .debug_line    0x000000000000201a      0x270 build/GPIO_Config.o
+ .debug_line    0x000000000000228a       0x76 build/startup_stm32f411xe.o
 
-.debug_str      0x0000000000000000     0x1515
- .debug_str     0x0000000000000000      0x47a build/main.o
-                                        0x4cb (size before relaxing)
- .debug_str     0x000000000000047a       0xb4 build/stm32f4xx_it.o
+.debug_str      0x0000000000000000     0x1514
+ .debug_str     0x0000000000000000      0x479 build/main.o
+                                        0x4ca (size before relaxing)
+ .debug_str     0x0000000000000479       0xb4 build/stm32f4xx_it.o
                                         0x241 (size before relaxing)
- .debug_str     0x000000000000052e       0x29 build/stm32f4xx_hal_msp.o
+ .debug_str     0x000000000000052d       0x29 build/stm32f4xx_hal_msp.o
                                         0x2df (size before relaxing)
- .debug_str     0x0000000000000557      0x2d1 build/stm32f4xx_hal_rcc.o
+ .debug_str     0x0000000000000556      0x2d1 build/stm32f4xx_hal_rcc.o
                                         0x72a (size before relaxing)
- .debug_str     0x0000000000000828      0x8b8 build/stm32f4xx_hal_cortex.o
+ .debug_str     0x0000000000000827      0x8b8 build/stm32f4xx_hal_cortex.o
                                         0xae6 (size before relaxing)
- .debug_str     0x00000000000010e0      0x2a6 build/stm32f4xx_hal.o
+ .debug_str     0x00000000000010df      0x2a6 build/stm32f4xx_hal.o
                                         0xa26 (size before relaxing)
- .debug_str     0x0000000000001386       0x47 build/system_stm32f4xx.o
+ .debug_str     0x0000000000001385       0x47 build/system_stm32f4xx.o
                                         0x399 (size before relaxing)
- .debug_str     0x00000000000013cd      0x124 build/GPIO_Config.o
-                                        0x315 (size before relaxing)
- .debug_str     0x00000000000014f1       0x24 build/startup_stm32f411xe.o
+ .debug_str     0x00000000000013cc      0x124 build/GPIO_Config.o
+                                        0x314 (size before relaxing)
+ .debug_str     0x00000000000014f0       0x24 build/startup_stm32f411xe.o
                                          0x7c (size before relaxing)
 
 .comment        0x0000000000000000       0x49
@@ -1092,7 +1092,7 @@ LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-
  .comment       0x0000000000000049       0x4a build/system_stm32f4xx.o
  .comment       0x0000000000000049       0x4a build/GPIO_Config.o
 
-.debug_frame    0x0000000000000000      0x70c
+.debug_frame    0x0000000000000000      0x710
  .debug_frame   0x0000000000000000       0x58 build/main.o
  .debug_frame   0x0000000000000058       0xa8 build/stm32f4xx_it.o
  .debug_frame   0x0000000000000100       0x28 build/stm32f4xx_hal_msp.o
@@ -1100,11 +1100,11 @@ LOAD /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-
  .debug_frame   0x0000000000000294      0x148 build/stm32f4xx_hal_cortex.o
  .debug_frame   0x00000000000003dc      0x1ec build/stm32f4xx_hal.o
  .debug_frame   0x00000000000005c8       0x30 build/system_stm32f4xx.o
- .debug_frame   0x00000000000005f8       0x68 build/GPIO_Config.o
- .debug_frame   0x0000000000000660       0x2c /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-init.o)
- .debug_frame   0x000000000000068c       0x20 /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-memset.o)
- .debug_frame   0x00000000000006ac       0x2c /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x00000000000006d8       0x34 /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00000000000005f8       0x6c build/GPIO_Config.o
+ .debug_frame   0x0000000000000664       0x2c /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-init.o)
+ .debug_frame   0x0000000000000690       0x20 /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/libc_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000000000006b0       0x2c /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x00000000000006dc       0x34 /home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard/libgcc.a(_udivmoddi4.o)
 
 Cross Reference Table
 
@@ -1149,7 +1149,7 @@ FLASH_IRQHandler                                  build/startup_stm32f411xe.o
 FLASH_WaitForLastOperation                        build/stm32f4xx_hal_flash.o
                                                   build/stm32f4xx_hal_flash_ex.o
 FPU_IRQHandler                                    build/startup_stm32f411xe.o
-GPIO_PIN_INPUT_PC13                               build/GPIO_Config.o
+GPIO_PIN_INPUT_PC0                                build/GPIO_Config.o
                                                   build/main.o
 GPIO_PIN_LOW_LOGIC_PA5                            build/GPIO_Config.o
 GPIO_PIN_SET_LOGIC_PA5                            build/GPIO_Config.o
