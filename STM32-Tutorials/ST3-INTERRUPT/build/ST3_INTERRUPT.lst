@@ -1,0 +1,1019 @@
+ARM GAS  /tmp/cc2zLr4F.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"ST3_INTERRUPT.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.rodata.RCC_CONFIG_SW.str1.4,"aMS",%progbits,1
+  20              		.align	2
+  21              	.LC0:
+  22 0000 5243435F 		.ascii	"RCC_PWR_ON_IS_CLOSE\000"
+  22      5057525F 
+  22      4F4E5F49 
+  22      535F434C 
+  22      4F534500 
+  23              		.align	2
+  24              	.LC1:
+  25 0014 5243435F 		.ascii	"RCC_PWR_ON_IS_ENABLE\000"
+  25      5057525F 
+  25      4F4E5F49 
+  25      535F454E 
+  25      41424C45 
+  26 0029 000000   		.align	2
+  27              	.LC2:
+  28 002c 0D0A5243 		.ascii	"\015\012RCC_SYSCONFIG_IS_DISABLE\000"
+  28      435F5359 
+  28      53434F4E 
+  28      4649475F 
+  28      49535F44 
+  29 0047 00       		.align	2
+  30              	.LC3:
+  31 0048 0D0A5243 		.ascii	"\015\012RCC_SYSCONFIG_IS_ENABLE\000"
+  31      435F5359 
+  31      53434F4E 
+  31      4649475F 
+  31      49535F45 
+  32 0062 0000     		.align	2
+  33              	.LC4:
+  34 0064 4750494F 		.ascii	"GPIOA\000"
+  34      4100
+  35 006a 0000     		.align	2
+  36              	.LC5:
+  37 006c 4750494F 		.ascii	"GPIOB\000"
+  37      4200
+  38 0072 0000     		.align	2
+  39              	.LC6:
+ARM GAS  /tmp/cc2zLr4F.s 			page 2
+
+
+  40 0074 4750494F 		.ascii	"GPIOC\000"
+  40      4300
+  41 007a 0000     		.align	2
+  42              	.LC7:
+  43 007c 4750494F 		.ascii	"GPIOD\000"
+  43      4400
+  44 0082 0000     		.align	2
+  45              	.LC8:
+  46 0084 4750494F 		.ascii	"GPIOE\000"
+  46      4500
+  47 008a 0000     		.align	2
+  48              	.LC9:
+  49 008c 4750494F 		.ascii	"GPIOH\000"
+  49      4800
+  50              		.section	.text.RCC_CONFIG_SW,"ax",%progbits
+  51              		.align	1
+  52              		.global	RCC_CONFIG_SW
+  53              		.syntax unified
+  54              		.thumb
+  55              		.thumb_func
+  57              	RCC_CONFIG_SW:
+  58              	.LVL0:
+  59              	.LFB133:
+  60              		.file 1 "Core/Src/ST3_INTERRUPT.c"
+   1:Core/Src/ST3_INTERRUPT.c **** #include"ST3_INTERRUPT.h"
+   2:Core/Src/ST3_INTERRUPT.c **** #include "stm32f4xx_hal.h"
+   3:Core/Src/ST3_INTERRUPT.c **** #include <stdio.h>
+   4:Core/Src/ST3_INTERRUPT.c **** #include <string.h>
+   5:Core/Src/ST3_INTERRUPT.c **** 
+   6:Core/Src/ST3_INTERRUPT.c **** 
+   7:Core/Src/ST3_INTERRUPT.c **** void RCC_CONFIG_SW( uint8_t  PWR_ON_OFF,uint8_t SYSCONFIG_RCC, char *GPIOX )
+   8:Core/Src/ST3_INTERRUPT.c **** {
+  61              		.loc 1 8 1 view -0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		.loc 1 8 1 is_stmt 0 view .LVU1
+  66 0000 38B5     		push	{r3, r4, r5, lr}
+  67              	.LCFI0:
+  68              		.cfi_def_cfa_offset 16
+  69              		.cfi_offset 3, -16
+  70              		.cfi_offset 4, -12
+  71              		.cfi_offset 5, -8
+  72              		.cfi_offset 14, -4
+  73 0002 0C46     		mov	r4, r1
+  74 0004 1546     		mov	r5, r2
+   9:Core/Src/ST3_INTERRUPT.c **** 
+  10:Core/Src/ST3_INTERRUPT.c **** __STATE_OF_RCC_CONFIG_SW ST1 =      PWR_ON_OFF;
+  75              		.loc 1 10 1 is_stmt 1 view .LVU2
+  76              	.LVL1:
+  11:Core/Src/ST3_INTERRUPT.c **** __STATE_OF_RCC_CONFIG_SW ST2 =      SYSCONFIG_RCC;
+  77              		.loc 1 11 1 view .LVU3
+  12:Core/Src/ST3_INTERRUPT.c **** switch (ST1)
+  78              		.loc 1 12 1 view .LVU4
+  79 0006 0228     		cmp	r0, #2
+  80 0008 11D0     		beq	.L2
+  81 000a 0328     		cmp	r0, #3
+ARM GAS  /tmp/cc2zLr4F.s 			page 3
+
+
+  82 000c 1AD0     		beq	.L3
+  83              	.LVL2:
+  84              	.L4:
+  13:Core/Src/ST3_INTERRUPT.c **** {
+  14:Core/Src/ST3_INTERRUPT.c **** case RCC_CONFIG_PWR_OFF:
+  15:Core/Src/ST3_INTERRUPT.c ****     printf("RCC_PWR_ON_IS_CLOSE");
+  16:Core/Src/ST3_INTERRUPT.c ****     RCC_REGISTER_APB1ENR_RE &= ~(LOGIC_HIGH << 28);
+  17:Core/Src/ST3_INTERRUPT.c ****     break;
+  18:Core/Src/ST3_INTERRUPT.c **** case RCC_CONFIG_PWR_ON:
+  19:Core/Src/ST3_INTERRUPT.c ****     printf("RCC_PWR_ON_IS_ENABLE");
+  20:Core/Src/ST3_INTERRUPT.c ****     RCC_REGISTER_APB1ENR_RE |=  (LOGIC_HIGH << 28);
+  21:Core/Src/ST3_INTERRUPT.c **** default:
+  22:Core/Src/ST3_INTERRUPT.c ****     break;
+  23:Core/Src/ST3_INTERRUPT.c **** }
+  24:Core/Src/ST3_INTERRUPT.c **** 
+  25:Core/Src/ST3_INTERRUPT.c **** switch (ST2)
+  85              		.loc 1 25 1 view .LVU5
+  86 000e 24B3     		cbz	r4, .L5
+  87 0010 012C     		cmp	r4, #1
+  88 0012 2DD0     		beq	.L6
+  89              	.L7:
+  26:Core/Src/ST3_INTERRUPT.c **** {
+  27:Core/Src/ST3_INTERRUPT.c **** case RCC_CONFIG_SW_OFF:
+  28:Core/Src/ST3_INTERRUPT.c ****      printf("\r\nRCC_SYSCONFIG_IS_DISABLE");
+  29:Core/Src/ST3_INTERRUPT.c ****      RCC_REGISTER_APB2ENR_RE  &= ~(LOGIC_HIGH << 14);
+  30:Core/Src/ST3_INTERRUPT.c ****     break;
+  31:Core/Src/ST3_INTERRUPT.c **** case RCC_CONFIG_SW_ON:
+  32:Core/Src/ST3_INTERRUPT.c ****      printf("\r\nRCC_SYSCONFIG_IS_ENABLE");
+  33:Core/Src/ST3_INTERRUPT.c ****      RCC_REGISTER_APB2ENR_RE  |=  (LOGIC_HIGH << 14);
+  34:Core/Src/ST3_INTERRUPT.c **** default:
+  35:Core/Src/ST3_INTERRUPT.c ****     break;
+  36:Core/Src/ST3_INTERRUPT.c **** }
+  37:Core/Src/ST3_INTERRUPT.c **** 
+  38:Core/Src/ST3_INTERRUPT.c **** if(strstr(GPIOX,"GPIOA"))
+  90              		.loc 1 38 1 view .LVU6
+  91              		.loc 1 38 4 is_stmt 0 view .LVU7
+  92 0014 3D49     		ldr	r1, .L15
+  93 0016 2846     		mov	r0, r5
+  94 0018 FFF7FEFF 		bl	strstr
+  95              	.LVL3:
+  96              		.loc 1 38 3 view .LVU8
+  97 001c 98B3     		cbz	r0, .L8
+  39:Core/Src/ST3_INTERRUPT.c **** {
+  40:Core/Src/ST3_INTERRUPT.c **** RCC_REGISTER_AHB1ENR_RE |= (LOGIC_HIGH << 0);
+  98              		.loc 1 40 1 is_stmt 1 view .LVU9
+  99              		.loc 1 40 25 is_stmt 0 view .LVU10
+ 100 001e 3C4A     		ldr	r2, .L15+4
+ 101 0020 D2F83038 		ldr	r3, [r2, #2096]
+ 102 0024 43F00103 		orr	r3, r3, #1
+ 103 0028 C2F83038 		str	r3, [r2, #2096]
+ 104              	.L1:
+  41:Core/Src/ST3_INTERRUPT.c **** 
+  42:Core/Src/ST3_INTERRUPT.c **** 
+  43:Core/Src/ST3_INTERRUPT.c **** }
+  44:Core/Src/ST3_INTERRUPT.c **** else if(strstr(GPIOX,"GPIOB"))
+  45:Core/Src/ST3_INTERRUPT.c **** {
+  46:Core/Src/ST3_INTERRUPT.c **** RCC_REGISTER_AHB1ENR_RE |= (LOGIC_HIGH << 1);
+ARM GAS  /tmp/cc2zLr4F.s 			page 4
+
+
+  47:Core/Src/ST3_INTERRUPT.c **** 
+  48:Core/Src/ST3_INTERRUPT.c **** }
+  49:Core/Src/ST3_INTERRUPT.c **** else if(strstr(GPIOX,"GPIOC"))
+  50:Core/Src/ST3_INTERRUPT.c **** {
+  51:Core/Src/ST3_INTERRUPT.c **** 
+  52:Core/Src/ST3_INTERRUPT.c **** RCC_REGISTER_AHB1ENR_RE |= (LOGIC_HIGH << 2);
+  53:Core/Src/ST3_INTERRUPT.c **** }
+  54:Core/Src/ST3_INTERRUPT.c **** else if(strstr(GPIOX,"GPIOD"))
+  55:Core/Src/ST3_INTERRUPT.c **** {
+  56:Core/Src/ST3_INTERRUPT.c **** 
+  57:Core/Src/ST3_INTERRUPT.c **** RCC_REGISTER_AHB1ENR_RE |= (LOGIC_HIGH << 3);
+  58:Core/Src/ST3_INTERRUPT.c **** }
+  59:Core/Src/ST3_INTERRUPT.c **** else if(strstr(GPIOX,"GPIOE"))
+  60:Core/Src/ST3_INTERRUPT.c **** {
+  61:Core/Src/ST3_INTERRUPT.c **** 
+  62:Core/Src/ST3_INTERRUPT.c **** RCC_REGISTER_AHB1ENR_RE |= (LOGIC_HIGH << 4);    
+  63:Core/Src/ST3_INTERRUPT.c **** }
+  64:Core/Src/ST3_INTERRUPT.c **** else if(strstr(GPIOX,"GPIOH"))
+  65:Core/Src/ST3_INTERRUPT.c **** {
+  66:Core/Src/ST3_INTERRUPT.c **** 
+  67:Core/Src/ST3_INTERRUPT.c **** RCC_REGISTER_AHB1ENR_RE |= (LOGIC_HIGH << 7);
+  68:Core/Src/ST3_INTERRUPT.c **** }
+  69:Core/Src/ST3_INTERRUPT.c **** };
+ 105              		.loc 1 69 1 view .LVU11
+ 106 002c 38BD     		pop	{r3, r4, r5, pc}
+ 107              	.LVL4:
+ 108              	.L2:
+  15:Core/Src/ST3_INTERRUPT.c ****     RCC_REGISTER_APB1ENR_RE &= ~(LOGIC_HIGH << 28);
+ 109              		.loc 1 15 5 is_stmt 1 view .LVU12
+ 110 002e 3948     		ldr	r0, .L15+8
+ 111              	.LVL5:
+  15:Core/Src/ST3_INTERRUPT.c ****     RCC_REGISTER_APB1ENR_RE &= ~(LOGIC_HIGH << 28);
+ 112              		.loc 1 15 5 is_stmt 0 view .LVU13
+ 113 0030 FFF7FEFF 		bl	printf
+ 114              	.LVL6:
+  16:Core/Src/ST3_INTERRUPT.c ****     break;
+ 115              		.loc 1 16 5 is_stmt 1 view .LVU14
+  16:Core/Src/ST3_INTERRUPT.c ****     break;
+ 116              		.loc 1 16 29 is_stmt 0 view .LVU15
+ 117 0034 364A     		ldr	r2, .L15+4
+ 118 0036 D2F84038 		ldr	r3, [r2, #2112]
+ 119 003a 23F08053 		bic	r3, r3, #268435456
+ 120 003e C2F84038 		str	r3, [r2, #2112]
+  17:Core/Src/ST3_INTERRUPT.c **** case RCC_CONFIG_PWR_ON:
+ 121              		.loc 1 17 5 is_stmt 1 view .LVU16
+ 122 0042 E4E7     		b	.L4
+ 123              	.LVL7:
+ 124              	.L3:
+  19:Core/Src/ST3_INTERRUPT.c ****     RCC_REGISTER_APB1ENR_RE |=  (LOGIC_HIGH << 28);
+ 125              		.loc 1 19 5 view .LVU17
+ 126 0044 3448     		ldr	r0, .L15+12
+ 127              	.LVL8:
+  19:Core/Src/ST3_INTERRUPT.c ****     RCC_REGISTER_APB1ENR_RE |=  (LOGIC_HIGH << 28);
+ 128              		.loc 1 19 5 is_stmt 0 view .LVU18
+ 129 0046 FFF7FEFF 		bl	printf
+ 130              	.LVL9:
+  20:Core/Src/ST3_INTERRUPT.c **** default:
+ARM GAS  /tmp/cc2zLr4F.s 			page 5
+
+
+ 131              		.loc 1 20 5 is_stmt 1 view .LVU19
+  20:Core/Src/ST3_INTERRUPT.c **** default:
+ 132              		.loc 1 20 29 is_stmt 0 view .LVU20
+ 133 004a 314A     		ldr	r2, .L15+4
+ 134 004c D2F84038 		ldr	r3, [r2, #2112]
+ 135 0050 43F08053 		orr	r3, r3, #268435456
+ 136 0054 C2F84038 		str	r3, [r2, #2112]
+ 137 0058 D9E7     		b	.L4
+ 138              	.L5:
+  28:Core/Src/ST3_INTERRUPT.c ****      RCC_REGISTER_APB2ENR_RE  &= ~(LOGIC_HIGH << 14);
+ 139              		.loc 1 28 6 is_stmt 1 view .LVU21
+ 140 005a 3048     		ldr	r0, .L15+16
+ 141 005c FFF7FEFF 		bl	printf
+ 142              	.LVL10:
+  29:Core/Src/ST3_INTERRUPT.c ****     break;
+ 143              		.loc 1 29 6 view .LVU22
+  29:Core/Src/ST3_INTERRUPT.c ****     break;
+ 144              		.loc 1 29 31 is_stmt 0 view .LVU23
+ 145 0060 2B4A     		ldr	r2, .L15+4
+ 146 0062 D2F84438 		ldr	r3, [r2, #2116]
+ 147 0066 23F48043 		bic	r3, r3, #16384
+ 148 006a C2F84438 		str	r3, [r2, #2116]
+  30:Core/Src/ST3_INTERRUPT.c **** case RCC_CONFIG_SW_ON:
+ 149              		.loc 1 30 5 is_stmt 1 view .LVU24
+ 150 006e D1E7     		b	.L7
+ 151              	.L6:
+  32:Core/Src/ST3_INTERRUPT.c ****      RCC_REGISTER_APB2ENR_RE  |=  (LOGIC_HIGH << 14);
+ 152              		.loc 1 32 6 view .LVU25
+ 153 0070 2B48     		ldr	r0, .L15+20
+ 154 0072 FFF7FEFF 		bl	printf
+ 155              	.LVL11:
+  33:Core/Src/ST3_INTERRUPT.c **** default:
+ 156              		.loc 1 33 6 view .LVU26
+  33:Core/Src/ST3_INTERRUPT.c **** default:
+ 157              		.loc 1 33 31 is_stmt 0 view .LVU27
+ 158 0076 264A     		ldr	r2, .L15+4
+ 159 0078 D2F84438 		ldr	r3, [r2, #2116]
+ 160 007c 43F48043 		orr	r3, r3, #16384
+ 161 0080 C2F84438 		str	r3, [r2, #2116]
+ 162 0084 C6E7     		b	.L7
+ 163              	.L8:
+  44:Core/Src/ST3_INTERRUPT.c **** {
+ 164              		.loc 1 44 6 is_stmt 1 view .LVU28
+  44:Core/Src/ST3_INTERRUPT.c **** {
+ 165              		.loc 1 44 9 is_stmt 0 view .LVU29
+ 166 0086 2749     		ldr	r1, .L15+24
+ 167 0088 2846     		mov	r0, r5
+ 168 008a FFF7FEFF 		bl	strstr
+ 169              	.LVL12:
+  44:Core/Src/ST3_INTERRUPT.c **** {
+ 170              		.loc 1 44 8 view .LVU30
+ 171 008e 38B1     		cbz	r0, .L10
+  46:Core/Src/ST3_INTERRUPT.c **** 
+ 172              		.loc 1 46 1 is_stmt 1 view .LVU31
+  46:Core/Src/ST3_INTERRUPT.c **** 
+ 173              		.loc 1 46 25 is_stmt 0 view .LVU32
+ 174 0090 1F4A     		ldr	r2, .L15+4
+ARM GAS  /tmp/cc2zLr4F.s 			page 6
+
+
+ 175 0092 D2F83038 		ldr	r3, [r2, #2096]
+ 176 0096 43F00203 		orr	r3, r3, #2
+ 177 009a C2F83038 		str	r3, [r2, #2096]
+ 178 009e C5E7     		b	.L1
+ 179              	.L10:
+  49:Core/Src/ST3_INTERRUPT.c **** {
+ 180              		.loc 1 49 6 is_stmt 1 view .LVU33
+  49:Core/Src/ST3_INTERRUPT.c **** {
+ 181              		.loc 1 49 9 is_stmt 0 view .LVU34
+ 182 00a0 2149     		ldr	r1, .L15+28
+ 183 00a2 2846     		mov	r0, r5
+ 184 00a4 FFF7FEFF 		bl	strstr
+ 185              	.LVL13:
+  49:Core/Src/ST3_INTERRUPT.c **** {
+ 186              		.loc 1 49 8 view .LVU35
+ 187 00a8 38B1     		cbz	r0, .L11
+  52:Core/Src/ST3_INTERRUPT.c **** }
+ 188              		.loc 1 52 1 is_stmt 1 view .LVU36
+  52:Core/Src/ST3_INTERRUPT.c **** }
+ 189              		.loc 1 52 25 is_stmt 0 view .LVU37
+ 190 00aa 194A     		ldr	r2, .L15+4
+ 191 00ac D2F83038 		ldr	r3, [r2, #2096]
+ 192 00b0 43F00403 		orr	r3, r3, #4
+ 193 00b4 C2F83038 		str	r3, [r2, #2096]
+ 194 00b8 B8E7     		b	.L1
+ 195              	.L11:
+  54:Core/Src/ST3_INTERRUPT.c **** {
+ 196              		.loc 1 54 6 is_stmt 1 view .LVU38
+  54:Core/Src/ST3_INTERRUPT.c **** {
+ 197              		.loc 1 54 9 is_stmt 0 view .LVU39
+ 198 00ba 1C49     		ldr	r1, .L15+32
+ 199 00bc 2846     		mov	r0, r5
+ 200 00be FFF7FEFF 		bl	strstr
+ 201              	.LVL14:
+  54:Core/Src/ST3_INTERRUPT.c **** {
+ 202              		.loc 1 54 8 view .LVU40
+ 203 00c2 38B1     		cbz	r0, .L12
+  57:Core/Src/ST3_INTERRUPT.c **** }
+ 204              		.loc 1 57 1 is_stmt 1 view .LVU41
+  57:Core/Src/ST3_INTERRUPT.c **** }
+ 205              		.loc 1 57 25 is_stmt 0 view .LVU42
+ 206 00c4 124A     		ldr	r2, .L15+4
+ 207 00c6 D2F83038 		ldr	r3, [r2, #2096]
+ 208 00ca 43F00803 		orr	r3, r3, #8
+ 209 00ce C2F83038 		str	r3, [r2, #2096]
+ 210 00d2 ABE7     		b	.L1
+ 211              	.L12:
+  59:Core/Src/ST3_INTERRUPT.c **** {
+ 212              		.loc 1 59 6 is_stmt 1 view .LVU43
+  59:Core/Src/ST3_INTERRUPT.c **** {
+ 213              		.loc 1 59 9 is_stmt 0 view .LVU44
+ 214 00d4 1649     		ldr	r1, .L15+36
+ 215 00d6 2846     		mov	r0, r5
+ 216 00d8 FFF7FEFF 		bl	strstr
+ 217              	.LVL15:
+  59:Core/Src/ST3_INTERRUPT.c **** {
+ 218              		.loc 1 59 8 view .LVU45
+ARM GAS  /tmp/cc2zLr4F.s 			page 7
+
+
+ 219 00dc 38B1     		cbz	r0, .L13
+  62:Core/Src/ST3_INTERRUPT.c **** }
+ 220              		.loc 1 62 1 is_stmt 1 view .LVU46
+  62:Core/Src/ST3_INTERRUPT.c **** }
+ 221              		.loc 1 62 25 is_stmt 0 view .LVU47
+ 222 00de 0C4A     		ldr	r2, .L15+4
+ 223 00e0 D2F83038 		ldr	r3, [r2, #2096]
+ 224 00e4 43F01003 		orr	r3, r3, #16
+ 225 00e8 C2F83038 		str	r3, [r2, #2096]
+ 226 00ec 9EE7     		b	.L1
+ 227              	.L13:
+  64:Core/Src/ST3_INTERRUPT.c **** {
+ 228              		.loc 1 64 6 is_stmt 1 view .LVU48
+  64:Core/Src/ST3_INTERRUPT.c **** {
+ 229              		.loc 1 64 9 is_stmt 0 view .LVU49
+ 230 00ee 1149     		ldr	r1, .L15+40
+ 231 00f0 2846     		mov	r0, r5
+ 232 00f2 FFF7FEFF 		bl	strstr
+ 233              	.LVL16:
+  64:Core/Src/ST3_INTERRUPT.c **** {
+ 234              		.loc 1 64 8 view .LVU50
+ 235 00f6 0028     		cmp	r0, #0
+ 236 00f8 98D0     		beq	.L1
+  67:Core/Src/ST3_INTERRUPT.c **** }
+ 237              		.loc 1 67 1 is_stmt 1 view .LVU51
+  67:Core/Src/ST3_INTERRUPT.c **** }
+ 238              		.loc 1 67 25 is_stmt 0 view .LVU52
+ 239 00fa 054A     		ldr	r2, .L15+4
+ 240 00fc D2F83038 		ldr	r3, [r2, #2096]
+ 241 0100 43F08003 		orr	r3, r3, #128
+ 242 0104 C2F83038 		str	r3, [r2, #2096]
+ 243              		.loc 1 69 1 view .LVU53
+ 244 0108 90E7     		b	.L1
+ 245              	.L16:
+ 246 010a 00BF     		.align	2
+ 247              	.L15:
+ 248 010c 64000000 		.word	.LC4
+ 249 0110 00300240 		.word	1073885184
+ 250 0114 00000000 		.word	.LC0
+ 251 0118 14000000 		.word	.LC1
+ 252 011c 2C000000 		.word	.LC2
+ 253 0120 48000000 		.word	.LC3
+ 254 0124 6C000000 		.word	.LC5
+ 255 0128 74000000 		.word	.LC6
+ 256 012c 7C000000 		.word	.LC7
+ 257 0130 84000000 		.word	.LC8
+ 258 0134 8C000000 		.word	.LC9
+ 259              		.cfi_endproc
+ 260              	.LFE133:
+ 262              		.section	.text.INTERRUPT_SW_CONFIG,"ax",%progbits
+ 263              		.align	1
+ 264              		.global	INTERRUPT_SW_CONFIG
+ 265              		.syntax unified
+ 266              		.thumb
+ 267              		.thumb_func
+ 269              	INTERRUPT_SW_CONFIG:
+ 270              	.LFB134:
+ARM GAS  /tmp/cc2zLr4F.s 			page 8
+
+
+  70:Core/Src/ST3_INTERRUPT.c **** 
+  71:Core/Src/ST3_INTERRUPT.c **** void INTERRUPT_SW_CONFIG(void)
+  72:Core/Src/ST3_INTERRUPT.c **** {
+ 271              		.loc 1 72 1 is_stmt 1 view -0
+ 272              		.cfi_startproc
+ 273              		@ args = 0, pretend = 0, frame = 0
+ 274              		@ frame_needed = 0, uses_anonymous_args = 0
+ 275              		@ link register save eliminated.
+  73:Core/Src/ST3_INTERRUPT.c **** 
+  74:Core/Src/ST3_INTERRUPT.c **** 
+  75:Core/Src/ST3_INTERRUPT.c ****   GPIOA->MODER &= ~(3<<2);
+ 276              		.loc 1 75 3 view .LVU55
+ 277              		.loc 1 75 16 is_stmt 0 view .LVU56
+ 278 0000 174B     		ldr	r3, .L18
+ 279 0002 1A68     		ldr	r2, [r3]
+ 280 0004 22F00C02 		bic	r2, r2, #12
+ 281 0008 1A60     		str	r2, [r3]
+  76:Core/Src/ST3_INTERRUPT.c ****   GPIOA->OTYPER &= ~(1<<1);
+ 282              		.loc 1 76 3 is_stmt 1 view .LVU57
+ 283              		.loc 1 76 17 is_stmt 0 view .LVU58
+ 284 000a 5A68     		ldr	r2, [r3, #4]
+ 285 000c 22F00202 		bic	r2, r2, #2
+ 286 0010 5A60     		str	r2, [r3, #4]
+  77:Core/Src/ST3_INTERRUPT.c ****   GPIOA->PUPDR |= (1<<1);
+ 287              		.loc 1 77 3 is_stmt 1 view .LVU59
+ 288              		.loc 1 77 16 is_stmt 0 view .LVU60
+ 289 0012 DA68     		ldr	r2, [r3, #12]
+ 290 0014 42F00202 		orr	r2, r2, #2
+ 291 0018 DA60     		str	r2, [r3, #12]
+  78:Core/Src/ST3_INTERRUPT.c ****   GPIOA->OSPEEDR |= (1<<2);
+ 292              		.loc 1 78 3 is_stmt 1 view .LVU61
+ 293              		.loc 1 78 18 is_stmt 0 view .LVU62
+ 294 001a 9A68     		ldr	r2, [r3, #8]
+ 295 001c 42F00402 		orr	r2, r2, #4
+ 296 0020 9A60     		str	r2, [r3, #8]
+  79:Core/Src/ST3_INTERRUPT.c **** 
+  80:Core/Src/ST3_INTERRUPT.c ****   SYSCFG->EXTICR[1] &= ~(15<<4); //PA1 IS ENABLED.
+ 297              		.loc 1 80 3 is_stmt 1 view .LVU63
+ 298              		.loc 1 80 21 is_stmt 0 view .LVU64
+ 299 0022 104A     		ldr	r2, .L18+4
+ 300 0024 D368     		ldr	r3, [r2, #12]
+ 301 0026 23F0F003 		bic	r3, r3, #240
+ 302 002a D360     		str	r3, [r2, #12]
+  81:Core/Src/ST3_INTERRUPT.c ****  EXTI->RTSR &= ~(1<<1); // INTERRUPT RISING ENABLE 
+ 303              		.loc 1 81 2 is_stmt 1 view .LVU65
+ 304              		.loc 1 81 13 is_stmt 0 view .LVU66
+ 305 002c 0E4B     		ldr	r3, .L18+8
+ 306 002e 9A68     		ldr	r2, [r3, #8]
+ 307 0030 22F00202 		bic	r2, r2, #2
+ 308 0034 9A60     		str	r2, [r3, #8]
+  82:Core/Src/ST3_INTERRUPT.c ****  EXTI->FTSR |= (1<<1);
+ 309              		.loc 1 82 2 is_stmt 1 view .LVU67
+ 310              		.loc 1 82 13 is_stmt 0 view .LVU68
+ 311 0036 DA68     		ldr	r2, [r3, #12]
+ 312 0038 42F00202 		orr	r2, r2, #2
+ 313 003c DA60     		str	r2, [r3, #12]
+  83:Core/Src/ST3_INTERRUPT.c ****  EXTI->IMR |= (1<<1); // INTERRUPT MASKED ENABLE
+ARM GAS  /tmp/cc2zLr4F.s 			page 9
+
+
+ 314              		.loc 1 83 2 is_stmt 1 view .LVU69
+ 315              		.loc 1 83 12 is_stmt 0 view .LVU70
+ 316 003e 1A68     		ldr	r2, [r3]
+ 317 0040 42F00202 		orr	r2, r2, #2
+ 318 0044 1A60     		str	r2, [r3]
+  84:Core/Src/ST3_INTERRUPT.c ****  
+  85:Core/Src/ST3_INTERRUPT.c ****  NVIC->IP[7] |= (1<<4); // RANGER IS 0 -> 255.
+ 319              		.loc 1 85 2 is_stmt 1 view .LVU71
+ 320              		.loc 1 85 14 is_stmt 0 view .LVU72
+ 321 0046 094B     		ldr	r3, .L18+12
+ 322 0048 93F80723 		ldrb	r2, [r3, #775]	@ zero_extendqisi2
+ 323 004c 42F01002 		orr	r2, r2, #16
+ 324 0050 83F80723 		strb	r2, [r3, #775]
+  86:Core/Src/ST3_INTERRUPT.c **** NVIC->ISER[0] |= (1<<7); // ENABLE LINE 6
+ 325              		.loc 1 86 1 is_stmt 1 view .LVU73
+ 326              		.loc 1 86 15 is_stmt 0 view .LVU74
+ 327 0054 1A68     		ldr	r2, [r3]
+ 328 0056 42F08002 		orr	r2, r2, #128
+ 329 005a 1A60     		str	r2, [r3]
+  87:Core/Src/ST3_INTERRUPT.c **** }
+ 330              		.loc 1 87 1 view .LVU75
+ 331 005c 7047     		bx	lr
+ 332              	.L19:
+ 333 005e 00BF     		.align	2
+ 334              	.L18:
+ 335 0060 00000240 		.word	1073872896
+ 336 0064 00380140 		.word	1073821696
+ 337 0068 003C0140 		.word	1073822720
+ 338 006c 00E100E0 		.word	-536813312
+ 339              		.cfi_endproc
+ 340              	.LFE134:
+ 342              		.section	.text.SETTING_ON_GPIO_PIN_PA,"ax",%progbits
+ 343              		.align	1
+ 344              		.global	SETTING_ON_GPIO_PIN_PA
+ 345              		.syntax unified
+ 346              		.thumb
+ 347              		.thumb_func
+ 349              	SETTING_ON_GPIO_PIN_PA:
+ 350              	.LFB135:
+  88:Core/Src/ST3_INTERRUPT.c **** void SETTING_ON_GPIO_PIN_PA(void)
+  89:Core/Src/ST3_INTERRUPT.c **** {
+ 351              		.loc 1 89 1 is_stmt 1 view -0
+ 352              		.cfi_startproc
+ 353              		@ args = 0, pretend = 0, frame = 0
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355              		@ link register save eliminated.
+  90:Core/Src/ST3_INTERRUPT.c **** 
+  91:Core/Src/ST3_INTERRUPT.c **** RCC_AHB1ENR_RE |= (1<<0);
+ 356              		.loc 1 91 1 view .LVU77
+ 357              		.loc 1 91 16 is_stmt 0 view .LVU78
+ 358 0000 0B4B     		ldr	r3, .L21
+ 359 0002 D3F83028 		ldr	r2, [r3, #2096]
+ 360 0006 42F00101 		orr	r1, r2, #1
+ 361 000a C3F83018 		str	r1, [r3, #2096]
+  92:Core/Src/ST3_INTERRUPT.c **** RCC_AHB1ENR_RE |= (1<<2);
+ 362              		.loc 1 92 1 is_stmt 1 view .LVU79
+ 363              		.loc 1 92 16 is_stmt 0 view .LVU80
+ARM GAS  /tmp/cc2zLr4F.s 			page 10
+
+
+ 364 000e 42F00502 		orr	r2, r2, #5
+ 365 0012 C3F83028 		str	r2, [r3, #2096]
+  93:Core/Src/ST3_INTERRUPT.c **** RCC_APB1ENR_RE |= (1<<28);
+ 366              		.loc 1 93 1 is_stmt 1 view .LVU81
+ 367              		.loc 1 93 16 is_stmt 0 view .LVU82
+ 368 0016 D3F84028 		ldr	r2, [r3, #2112]
+ 369 001a 42F08052 		orr	r2, r2, #268435456
+ 370 001e C3F84028 		str	r2, [r3, #2112]
+  94:Core/Src/ST3_INTERRUPT.c **** RCC_APB2ENR_RE |= (1<<14);
+ 371              		.loc 1 94 1 is_stmt 1 view .LVU83
+ 372              		.loc 1 94 16 is_stmt 0 view .LVU84
+ 373 0022 D3F84428 		ldr	r2, [r3, #2116]
+ 374 0026 42F48042 		orr	r2, r2, #16384
+ 375 002a C3F84428 		str	r2, [r3, #2116]
+  95:Core/Src/ST3_INTERRUPT.c **** 
+  96:Core/Src/ST3_INTERRUPT.c **** // __HAL_RCC_GPIOC_CLK_ENABLE();
+  97:Core/Src/ST3_INTERRUPT.c **** };
+ 376              		.loc 1 97 1 view .LVU85
+ 377 002e 7047     		bx	lr
+ 378              	.L22:
+ 379              		.align	2
+ 380              	.L21:
+ 381 0030 00300240 		.word	1073885184
+ 382              		.cfi_endproc
+ 383              	.LFE135:
+ 385              		.section	.text.GPIO_PIN_SET_LOGIC_PA5,"ax",%progbits
+ 386              		.align	1
+ 387              		.global	GPIO_PIN_SET_LOGIC_PA5
+ 388              		.syntax unified
+ 389              		.thumb
+ 390              		.thumb_func
+ 392              	GPIO_PIN_SET_LOGIC_PA5:
+ 393              	.LFB136:
+  98:Core/Src/ST3_INTERRUPT.c **** 
+  99:Core/Src/ST3_INTERRUPT.c **** void GPIO_PIN_SET_LOGIC_PA5(void)
+ 100:Core/Src/ST3_INTERRUPT.c **** {
+ 394              		.loc 1 100 1 is_stmt 1 view -0
+ 395              		.cfi_startproc
+ 396              		@ args = 0, pretend = 0, frame = 0
+ 397              		@ frame_needed = 0, uses_anonymous_args = 0
+ 398 0000 38B5     		push	{r3, r4, r5, lr}
+ 399              	.LCFI1:
+ 400              		.cfi_def_cfa_offset 16
+ 401              		.cfi_offset 3, -16
+ 402              		.cfi_offset 4, -12
+ 403              		.cfi_offset 5, -8
+ 404              		.cfi_offset 14, -4
+ 101:Core/Src/ST3_INTERRUPT.c **** 
+ 102:Core/Src/ST3_INTERRUPT.c **** __STATE_OF_LOGIC STATE_LOGIC;
+ 405              		.loc 1 102 1 view .LVU87
+ 103:Core/Src/ST3_INTERRUPT.c **** STATE_LOGIC = LOW_lOGIC;
+ 406              		.loc 1 103 1 view .LVU88
+ 407              	.LVL17:
+ 104:Core/Src/ST3_INTERRUPT.c **** // GPIOA_MODE         |= ((0<<11) | (1<<10));
+ 105:Core/Src/ST3_INTERRUPT.c **** // GPIOA_TYPER        &= ~(1<<5);
+ 106:Core/Src/ST3_INTERRUPT.c **** // GPIOA_OSPEEDR      |= ((1<<11)  |(1<<10));
+ 107:Core/Src/ST3_INTERRUPT.c **** // HAL_Delay(1000);
+ARM GAS  /tmp/cc2zLr4F.s 			page 11
+
+
+ 108:Core/Src/ST3_INTERRUPT.c **** // GPIO_BITSET_RESET  |= (1<<5);
+ 109:Core/Src/ST3_INTERRUPT.c **** 
+ 110:Core/Src/ST3_INTERRUPT.c **** switch (STATE_LOGIC)
+ 408              		.loc 1 110 1 view .LVU89
+ 111:Core/Src/ST3_INTERRUPT.c **** {
+ 112:Core/Src/ST3_INTERRUPT.c **** case LOW_lOGIC:
+ 113:Core/Src/ST3_INTERRUPT.c **** 
+ 114:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_MODE_RE     |=((0<<11) | (1<<10));
+ 409              		.loc 1 114 1 view .LVU90
+ 410              		.loc 1 114 28 is_stmt 0 view .LVU91
+ 411 0002 1D4D     		ldr	r5, .L25
+ 412 0004 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 413 0006 DBB2     		uxtb	r3, r3
+ 414 0008 2B70     		strb	r3, [r5]
+ 115:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_TYPER_RE    &= ~(1<<5);
+ 415              		.loc 1 115 1 is_stmt 1 view .LVU92
+ 416              		.loc 1 115 28 is_stmt 0 view .LVU93
+ 417 000a 6B68     		ldr	r3, [r5, #4]
+ 418 000c 23F02003 		bic	r3, r3, #32
+ 419 0010 6B60     		str	r3, [r5, #4]
+ 116:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_OSPEEDR_RE  |=((1<<11)  |(1<<10));
+ 420              		.loc 1 116 1 is_stmt 1 view .LVU94
+ 421              		.loc 1 116 28 is_stmt 0 view .LVU95
+ 422 0012 AB68     		ldr	r3, [r5, #8]
+ 423 0014 43F44063 		orr	r3, r3, #3072
+ 424 0018 AB60     		str	r3, [r5, #8]
+ 117:Core/Src/ST3_INTERRUPT.c **** 
+ 118:Core/Src/ST3_INTERRUPT.c **** 
+ 119:Core/Src/ST3_INTERRUPT.c **** 
+ 120:Core/Src/ST3_INTERRUPT.c **** GPIOC_RE->GPIO_MODE_RE     |=((0<<1) | (1<<0));
+ 425              		.loc 1 120 1 is_stmt 1 view .LVU96
+ 426              		.loc 1 120 28 is_stmt 0 view .LVU97
+ 427 001a 184C     		ldr	r4, .L25+4
+ 428 001c 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 429 001e 43F00103 		orr	r3, r3, #1
+ 430 0022 2370     		strb	r3, [r4]
+ 121:Core/Src/ST3_INTERRUPT.c **** GPIOC_RE->GPIO_TYPER_RE    &= ~(1<<1);
+ 431              		.loc 1 121 1 is_stmt 1 view .LVU98
+ 432              		.loc 1 121 28 is_stmt 0 view .LVU99
+ 433 0024 6368     		ldr	r3, [r4, #4]
+ 434 0026 23F00203 		bic	r3, r3, #2
+ 435 002a 6360     		str	r3, [r4, #4]
+ 122:Core/Src/ST3_INTERRUPT.c **** GPIOC_RE->GPIO_OSPEEDR_RE  |=((1<<1)  |(1<<0));
+ 436              		.loc 1 122 1 is_stmt 1 view .LVU100
+ 437              		.loc 1 122 28 is_stmt 0 view .LVU101
+ 438 002c A368     		ldr	r3, [r4, #8]
+ 439 002e 43F00303 		orr	r3, r3, #3
+ 440 0032 A360     		str	r3, [r4, #8]
+ 123:Core/Src/ST3_INTERRUPT.c **** //GPIOC_RE->GPIO_PULLR_RE    |= ((0<<27) | ( 1<<26));
+ 124:Core/Src/ST3_INTERRUPT.c **** STATE_LOGIC = HIGH_LOGIC;
+ 441              		.loc 1 124 1 is_stmt 1 view .LVU102
+ 442              	.LVL18:
+ 125:Core/Src/ST3_INTERRUPT.c **** 
+ 126:Core/Src/ST3_INTERRUPT.c **** case HIGH_LOGIC:
+ 127:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_BITSET_BITRESET |= (1<<5);
+ 443              		.loc 1 127 1 view .LVU103
+ 444              		.loc 1 127 32 is_stmt 0 view .LVU104
+ARM GAS  /tmp/cc2zLr4F.s 			page 12
+
+
+ 445 0034 AB69     		ldr	r3, [r5, #24]
+ 446 0036 43F02003 		orr	r3, r3, #32
+ 447 003a AB61     		str	r3, [r5, #24]
+ 128:Core/Src/ST3_INTERRUPT.c **** HAL_Delay(1000);
+ 448              		.loc 1 128 1 is_stmt 1 view .LVU105
+ 449 003c 4FF47A70 		mov	r0, #1000
+ 450 0040 FFF7FEFF 		bl	HAL_Delay
+ 451              	.LVL19:
+ 129:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_BITSET_BITRESET |= (1<<21);
+ 452              		.loc 1 129 1 view .LVU106
+ 453              		.loc 1 129 32 is_stmt 0 view .LVU107
+ 454 0044 AB69     		ldr	r3, [r5, #24]
+ 455 0046 43F40013 		orr	r3, r3, #2097152
+ 456 004a AB61     		str	r3, [r5, #24]
+ 130:Core/Src/ST3_INTERRUPT.c **** HAL_Delay(1000);
+ 457              		.loc 1 130 1 is_stmt 1 view .LVU108
+ 458 004c 4FF47A70 		mov	r0, #1000
+ 459 0050 FFF7FEFF 		bl	HAL_Delay
+ 460              	.LVL20:
+ 131:Core/Src/ST3_INTERRUPT.c **** GPIOC_RE->GPIO_BITSET_BITRESET |= (1<<0);
+ 461              		.loc 1 131 1 view .LVU109
+ 462              		.loc 1 131 32 is_stmt 0 view .LVU110
+ 463 0054 A369     		ldr	r3, [r4, #24]
+ 464 0056 43F00103 		orr	r3, r3, #1
+ 465 005a A361     		str	r3, [r4, #24]
+ 132:Core/Src/ST3_INTERRUPT.c **** HAL_Delay(1000);
+ 466              		.loc 1 132 1 is_stmt 1 view .LVU111
+ 467 005c 4FF47A70 		mov	r0, #1000
+ 468 0060 FFF7FEFF 		bl	HAL_Delay
+ 469              	.LVL21:
+ 133:Core/Src/ST3_INTERRUPT.c **** GPIOC_RE->GPIO_BITSET_BITRESET |= (1<<16);
+ 470              		.loc 1 133 1 view .LVU112
+ 471              		.loc 1 133 32 is_stmt 0 view .LVU113
+ 472 0064 A369     		ldr	r3, [r4, #24]
+ 473 0066 43F48033 		orr	r3, r3, #65536
+ 474 006a A361     		str	r3, [r4, #24]
+ 134:Core/Src/ST3_INTERRUPT.c **** HAL_Delay(1000);
+ 475              		.loc 1 134 1 is_stmt 1 view .LVU114
+ 476 006c 4FF47A70 		mov	r0, #1000
+ 477 0070 FFF7FEFF 		bl	HAL_Delay
+ 478              	.LVL22:
+ 135:Core/Src/ST3_INTERRUPT.c **** STATE_LOGIC = UK_LOGIC;
+ 479              		.loc 1 135 1 view .LVU115
+ 136:Core/Src/ST3_INTERRUPT.c **** break;
+ 480              		.loc 1 136 1 view .LVU116
+ 137:Core/Src/ST3_INTERRUPT.c **** 
+ 138:Core/Src/ST3_INTERRUPT.c **** default:
+ 139:Core/Src/ST3_INTERRUPT.c ****     break;
+ 140:Core/Src/ST3_INTERRUPT.c **** }
+ 141:Core/Src/ST3_INTERRUPT.c **** 
+ 142:Core/Src/ST3_INTERRUPT.c **** };
+ 481              		.loc 1 142 1 is_stmt 0 view .LVU117
+ 482 0074 38BD     		pop	{r3, r4, r5, pc}
+ 483              	.L26:
+ 484 0076 00BF     		.align	2
+ 485              	.L25:
+ 486 0078 00000240 		.word	1073872896
+ARM GAS  /tmp/cc2zLr4F.s 			page 13
+
+
+ 487 007c 00080240 		.word	1073874944
+ 488              		.cfi_endproc
+ 489              	.LFE136:
+ 491              		.section	.text.GPIO_PIN_LOW_LOGIC_PA5,"ax",%progbits
+ 492              		.align	1
+ 493              		.global	GPIO_PIN_LOW_LOGIC_PA5
+ 494              		.syntax unified
+ 495              		.thumb
+ 496              		.thumb_func
+ 498              	GPIO_PIN_LOW_LOGIC_PA5:
+ 499              	.LFB137:
+ 143:Core/Src/ST3_INTERRUPT.c **** 
+ 144:Core/Src/ST3_INTERRUPT.c **** 
+ 145:Core/Src/ST3_INTERRUPT.c **** void GPIO_PIN_LOW_LOGIC_PA5(void)
+ 146:Core/Src/ST3_INTERRUPT.c **** {
+ 500              		.loc 1 146 1 is_stmt 1 view -0
+ 501              		.cfi_startproc
+ 502              		@ args = 0, pretend = 0, frame = 0
+ 503              		@ frame_needed = 0, uses_anonymous_args = 0
+ 504 0000 10B5     		push	{r4, lr}
+ 505              	.LCFI2:
+ 506              		.cfi_def_cfa_offset 8
+ 507              		.cfi_offset 4, -8
+ 508              		.cfi_offset 14, -4
+ 147:Core/Src/ST3_INTERRUPT.c **** 
+ 148:Core/Src/ST3_INTERRUPT.c **** 
+ 149:Core/Src/ST3_INTERRUPT.c **** GPIOA_MODE         |= ((0<<11) | (1<<10));
+ 509              		.loc 1 149 1 view .LVU119
+ 510              		.loc 1 149 20 is_stmt 0 view .LVU120
+ 511 0002 0B4C     		ldr	r4, .L29
+ 512 0004 2368     		ldr	r3, [r4]
+ 513 0006 43F48063 		orr	r3, r3, #1024
+ 514 000a 2360     		str	r3, [r4]
+ 150:Core/Src/ST3_INTERRUPT.c **** GPIOA_TYPER        &= ~(1<<5);
+ 515              		.loc 1 150 1 is_stmt 1 view .LVU121
+ 516              		.loc 1 150 20 is_stmt 0 view .LVU122
+ 517 000c 6368     		ldr	r3, [r4, #4]
+ 518 000e 23F02003 		bic	r3, r3, #32
+ 519 0012 6360     		str	r3, [r4, #4]
+ 151:Core/Src/ST3_INTERRUPT.c **** GPIOA_OSPEEDR      |= ((1<<11)  |(1<<10));
+ 520              		.loc 1 151 1 is_stmt 1 view .LVU123
+ 521              		.loc 1 151 20 is_stmt 0 view .LVU124
+ 522 0014 A368     		ldr	r3, [r4, #8]
+ 523 0016 43F44063 		orr	r3, r3, #3072
+ 524 001a A360     		str	r3, [r4, #8]
+ 152:Core/Src/ST3_INTERRUPT.c **** HAL_Delay(1000);
+ 525              		.loc 1 152 1 is_stmt 1 view .LVU125
+ 526 001c 4FF47A70 		mov	r0, #1000
+ 527 0020 FFF7FEFF 		bl	HAL_Delay
+ 528              	.LVL23:
+ 153:Core/Src/ST3_INTERRUPT.c **** GPIO_BITSET_RESET  |= (1<<21);
+ 529              		.loc 1 153 1 view .LVU126
+ 530              		.loc 1 153 20 is_stmt 0 view .LVU127
+ 531 0024 A369     		ldr	r3, [r4, #24]
+ 532 0026 43F40013 		orr	r3, r3, #2097152
+ 533 002a A361     		str	r3, [r4, #24]
+ 154:Core/Src/ST3_INTERRUPT.c **** 
+ARM GAS  /tmp/cc2zLr4F.s 			page 14
+
+
+ 155:Core/Src/ST3_INTERRUPT.c **** };
+ 534              		.loc 1 155 1 view .LVU128
+ 535 002c 10BD     		pop	{r4, pc}
+ 536              	.L30:
+ 537 002e 00BF     		.align	2
+ 538              	.L29:
+ 539 0030 00000240 		.word	1073872896
+ 540              		.cfi_endproc
+ 541              	.LFE137:
+ 543              		.section	.text.GPIO_CONFIG_PA5_PA6,"ax",%progbits
+ 544              		.align	1
+ 545              		.global	GPIO_CONFIG_PA5_PA6
+ 546              		.syntax unified
+ 547              		.thumb
+ 548              		.thumb_func
+ 550              	GPIO_CONFIG_PA5_PA6:
+ 551              	.LFB138:
+ 156:Core/Src/ST3_INTERRUPT.c **** 
+ 157:Core/Src/ST3_INTERRUPT.c **** 
+ 158:Core/Src/ST3_INTERRUPT.c **** void GPIO_CONFIG_PA5_PA6(void)
+ 159:Core/Src/ST3_INTERRUPT.c **** {
+ 552              		.loc 1 159 1 is_stmt 1 view -0
+ 553              		.cfi_startproc
+ 554              		@ args = 0, pretend = 0, frame = 0
+ 555              		@ frame_needed = 0, uses_anonymous_args = 0
+ 556              		@ link register save eliminated.
+ 557 0000 10B4     		push	{r4}
+ 558              	.LCFI3:
+ 559              		.cfi_def_cfa_offset 4
+ 560              		.cfi_offset 4, -4
+ 160:Core/Src/ST3_INTERRUPT.c **** 
+ 161:Core/Src/ST3_INTERRUPT.c **** 
+ 162:Core/Src/ST3_INTERRUPT.c **** GPIOA_MODE         |= ((0<<11) | (1<<10));
+ 561              		.loc 1 162 1 view .LVU130
+ 562              		.loc 1 162 20 is_stmt 0 view .LVU131
+ 563 0002 0C4B     		ldr	r3, .L33
+ 564 0004 1868     		ldr	r0, [r3]
+ 565 0006 40F48062 		orr	r2, r0, #1024
+ 566 000a 1A60     		str	r2, [r3]
+ 163:Core/Src/ST3_INTERRUPT.c **** GPIOA_TYPER        &= ~(1<<5);
+ 567              		.loc 1 163 1 is_stmt 1 view .LVU132
+ 568              		.loc 1 163 20 is_stmt 0 view .LVU133
+ 569 000c 5968     		ldr	r1, [r3, #4]
+ 570 000e 21F02002 		bic	r2, r1, #32
+ 571 0012 5A60     		str	r2, [r3, #4]
+ 164:Core/Src/ST3_INTERRUPT.c **** GPIOA_OSPEEDR      |= ((1<<11)  |(1<<10));
+ 572              		.loc 1 164 1 is_stmt 1 view .LVU134
+ 573              		.loc 1 164 20 is_stmt 0 view .LVU135
+ 574 0014 9A68     		ldr	r2, [r3, #8]
+ 575 0016 42F44064 		orr	r4, r2, #3072
+ 576 001a 9C60     		str	r4, [r3, #8]
+ 165:Core/Src/ST3_INTERRUPT.c **** 
+ 166:Core/Src/ST3_INTERRUPT.c **** GPIOA_MODE         |= ((0<<13) | (1<<12));
+ 577              		.loc 1 166 1 is_stmt 1 view .LVU136
+ 578              		.loc 1 166 20 is_stmt 0 view .LVU137
+ 579 001c 40F4A050 		orr	r0, r0, #5120
+ 580 0020 1860     		str	r0, [r3]
+ARM GAS  /tmp/cc2zLr4F.s 			page 15
+
+
+ 167:Core/Src/ST3_INTERRUPT.c **** GPIOA_TYPER        &= ~(1<<6);
+ 581              		.loc 1 167 1 is_stmt 1 view .LVU138
+ 582              		.loc 1 167 20 is_stmt 0 view .LVU139
+ 583 0022 21F06001 		bic	r1, r1, #96
+ 584 0026 5960     		str	r1, [r3, #4]
+ 168:Core/Src/ST3_INTERRUPT.c **** GPIOA_OSPEEDR      |= ((1<<13)  |(1<<12));
+ 585              		.loc 1 168 1 is_stmt 1 view .LVU140
+ 586              		.loc 1 168 20 is_stmt 0 view .LVU141
+ 587 0028 42F47052 		orr	r2, r2, #15360
+ 588 002c 9A60     		str	r2, [r3, #8]
+ 169:Core/Src/ST3_INTERRUPT.c **** };
+ 589              		.loc 1 169 1 view .LVU142
+ 590 002e 5DF8044B 		ldr	r4, [sp], #4
+ 591              	.LCFI4:
+ 592              		.cfi_restore 4
+ 593              		.cfi_def_cfa_offset 0
+ 594 0032 7047     		bx	lr
+ 595              	.L34:
+ 596              		.align	2
+ 597              	.L33:
+ 598 0034 00000240 		.word	1073872896
+ 599              		.cfi_endproc
+ 600              	.LFE138:
+ 602              		.section	.text.GPIO_PIN_INPUT_PC0,"ax",%progbits
+ 603              		.align	1
+ 604              		.global	GPIO_PIN_INPUT_PC0
+ 605              		.syntax unified
+ 606              		.thumb
+ 607              		.thumb_func
+ 609              	GPIO_PIN_INPUT_PC0:
+ 610              	.LFB139:
+ 170:Core/Src/ST3_INTERRUPT.c **** 
+ 171:Core/Src/ST3_INTERRUPT.c **** 
+ 172:Core/Src/ST3_INTERRUPT.c **** void GPIO_PIN_INPUT_PC0(void)
+ 173:Core/Src/ST3_INTERRUPT.c **** {
+ 611              		.loc 1 173 1 is_stmt 1 view -0
+ 612              		.cfi_startproc
+ 613              		@ args = 0, pretend = 0, frame = 0
+ 614              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174:Core/Src/ST3_INTERRUPT.c **** 
+ 175:Core/Src/ST3_INTERRUPT.c **** GPIOC_RE->GPIO_MODE_RE     |=((0<<1) | (0<<0));
+ 615              		.loc 1 175 1 view .LVU144
+ 616              		.loc 1 175 28 is_stmt 0 view .LVU145
+ 617 0000 154B     		ldr	r3, .L42
+ 618 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 619 0004 D2B2     		uxtb	r2, r2
+ 620 0006 1A70     		strb	r2, [r3]
+ 176:Core/Src/ST3_INTERRUPT.c **** // GPIOA_RE->GPIO_TYPER_RE    &= ~(1<<5);
+ 177:Core/Src/ST3_INTERRUPT.c **** // GPIOA_RE->GPIO_OSPEEDR_RE  |=((1<<11)  |(1<<10));
+ 178:Core/Src/ST3_INTERRUPT.c **** GPIOC_RE->GPIO_PULLR_RE    |= ((0<<1) | ( 1<<0));
+ 621              		.loc 1 178 1 is_stmt 1 view .LVU146
+ 622              		.loc 1 178 28 is_stmt 0 view .LVU147
+ 623 0008 DA68     		ldr	r2, [r3, #12]
+ 624 000a 42F00102 		orr	r2, r2, #1
+ 625 000e DA60     		str	r2, [r3, #12]
+ 179:Core/Src/ST3_INTERRUPT.c **** 
+ 180:Core/Src/ST3_INTERRUPT.c **** if((GPIOC_RE->GPIO_IDR_RE&(1<<0)) == 1)
+ARM GAS  /tmp/cc2zLr4F.s 			page 16
+
+
+ 626              		.loc 1 180 1 is_stmt 1 view .LVU148
+ 627              		.loc 1 180 13 is_stmt 0 view .LVU149
+ 628 0010 1B69     		ldr	r3, [r3, #16]
+ 629              		.loc 1 180 3 view .LVU150
+ 630 0012 13F0010F 		tst	r3, #1
+ 631 0016 00D1     		bne	.L41
+ 632 0018 7047     		bx	lr
+ 633              	.L41:
+ 173:Core/Src/ST3_INTERRUPT.c **** 
+ 634              		.loc 1 173 1 view .LVU151
+ 635 001a 10B5     		push	{r4, lr}
+ 636              	.LCFI5:
+ 637              		.cfi_def_cfa_offset 8
+ 638              		.cfi_offset 4, -8
+ 639              		.cfi_offset 14, -4
+ 181:Core/Src/ST3_INTERRUPT.c **** {
+ 182:Core/Src/ST3_INTERRUPT.c **** 
+ 183:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_MODE_RE     |=((0<<11) | (1<<10));
+ 640              		.loc 1 183 1 is_stmt 1 view .LVU152
+ 641              		.loc 1 183 28 is_stmt 0 view .LVU153
+ 642 001c 0F4C     		ldr	r4, .L42+4
+ 643 001e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 644 0020 DBB2     		uxtb	r3, r3
+ 645 0022 2370     		strb	r3, [r4]
+ 184:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_TYPER_RE    &= ~(1<<5);
+ 646              		.loc 1 184 1 is_stmt 1 view .LVU154
+ 647              		.loc 1 184 28 is_stmt 0 view .LVU155
+ 648 0024 6368     		ldr	r3, [r4, #4]
+ 649 0026 23F02003 		bic	r3, r3, #32
+ 650 002a 6360     		str	r3, [r4, #4]
+ 185:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_OSPEEDR_RE  |=((1<<11)  |(1<<10));
+ 651              		.loc 1 185 1 is_stmt 1 view .LVU156
+ 652              		.loc 1 185 28 is_stmt 0 view .LVU157
+ 653 002c A368     		ldr	r3, [r4, #8]
+ 654 002e 43F44063 		orr	r3, r3, #3072
+ 655 0032 A360     		str	r3, [r4, #8]
+ 186:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_BITSET_BITRESET |= (1<<5);
+ 656              		.loc 1 186 1 is_stmt 1 view .LVU158
+ 657              		.loc 1 186 32 is_stmt 0 view .LVU159
+ 658 0034 A369     		ldr	r3, [r4, #24]
+ 659 0036 43F02003 		orr	r3, r3, #32
+ 660 003a A361     		str	r3, [r4, #24]
+ 187:Core/Src/ST3_INTERRUPT.c **** HAL_Delay(1000);
+ 661              		.loc 1 187 1 is_stmt 1 view .LVU160
+ 662 003c 4FF47A70 		mov	r0, #1000
+ 663 0040 FFF7FEFF 		bl	HAL_Delay
+ 664              	.LVL24:
+ 188:Core/Src/ST3_INTERRUPT.c **** GPIOA_RE->GPIO_BITSET_BITRESET |= (1<<21);
+ 665              		.loc 1 188 1 view .LVU161
+ 666              		.loc 1 188 32 is_stmt 0 view .LVU162
+ 667 0044 A369     		ldr	r3, [r4, #24]
+ 668 0046 43F40013 		orr	r3, r3, #2097152
+ 669 004a A361     		str	r3, [r4, #24]
+ 189:Core/Src/ST3_INTERRUPT.c **** HAL_Delay(1000);
+ 670              		.loc 1 189 1 is_stmt 1 view .LVU163
+ 671 004c 4FF47A70 		mov	r0, #1000
+ 672 0050 FFF7FEFF 		bl	HAL_Delay
+ARM GAS  /tmp/cc2zLr4F.s 			page 17
+
+
+ 673              	.LVL25:
+ 190:Core/Src/ST3_INTERRUPT.c **** 
+ 191:Core/Src/ST3_INTERRUPT.c **** 
+ 192:Core/Src/ST3_INTERRUPT.c **** }
+ 193:Core/Src/ST3_INTERRUPT.c **** };
+ 674              		.loc 1 193 1 is_stmt 0 view .LVU164
+ 675 0054 10BD     		pop	{r4, pc}
+ 676              	.L43:
+ 677 0056 00BF     		.align	2
+ 678              	.L42:
+ 679 0058 00080240 		.word	1073874944
+ 680 005c 00000240 		.word	1073872896
+ 681              		.cfi_endproc
+ 682              	.LFE139:
+ 684              		.text
+ 685              	.Letext0:
+ 686              		.file 2 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default
+ 687              		.file 3 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
+ 688              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 689              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ 690              		.file 6 "Core/Inc/ST3_INTERRUPT.h"
+ 691              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 692              		.file 8 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/string.h"
+ 693              		.file 9 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/stdio.h"
+ARM GAS  /tmp/cc2zLr4F.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 ST3_INTERRUPT.c
+     /tmp/cc2zLr4F.s:20     .rodata.RCC_CONFIG_SW.str1.4:0000000000000000 $d
+     /tmp/cc2zLr4F.s:51     .text.RCC_CONFIG_SW:0000000000000000 $t
+     /tmp/cc2zLr4F.s:57     .text.RCC_CONFIG_SW:0000000000000000 RCC_CONFIG_SW
+     /tmp/cc2zLr4F.s:248    .text.RCC_CONFIG_SW:000000000000010c $d
+     /tmp/cc2zLr4F.s:263    .text.INTERRUPT_SW_CONFIG:0000000000000000 $t
+     /tmp/cc2zLr4F.s:269    .text.INTERRUPT_SW_CONFIG:0000000000000000 INTERRUPT_SW_CONFIG
+     /tmp/cc2zLr4F.s:335    .text.INTERRUPT_SW_CONFIG:0000000000000060 $d
+     /tmp/cc2zLr4F.s:343    .text.SETTING_ON_GPIO_PIN_PA:0000000000000000 $t
+     /tmp/cc2zLr4F.s:349    .text.SETTING_ON_GPIO_PIN_PA:0000000000000000 SETTING_ON_GPIO_PIN_PA
+     /tmp/cc2zLr4F.s:381    .text.SETTING_ON_GPIO_PIN_PA:0000000000000030 $d
+     /tmp/cc2zLr4F.s:386    .text.GPIO_PIN_SET_LOGIC_PA5:0000000000000000 $t
+     /tmp/cc2zLr4F.s:392    .text.GPIO_PIN_SET_LOGIC_PA5:0000000000000000 GPIO_PIN_SET_LOGIC_PA5
+     /tmp/cc2zLr4F.s:486    .text.GPIO_PIN_SET_LOGIC_PA5:0000000000000078 $d
+     /tmp/cc2zLr4F.s:492    .text.GPIO_PIN_LOW_LOGIC_PA5:0000000000000000 $t
+     /tmp/cc2zLr4F.s:498    .text.GPIO_PIN_LOW_LOGIC_PA5:0000000000000000 GPIO_PIN_LOW_LOGIC_PA5
+     /tmp/cc2zLr4F.s:539    .text.GPIO_PIN_LOW_LOGIC_PA5:0000000000000030 $d
+     /tmp/cc2zLr4F.s:544    .text.GPIO_CONFIG_PA5_PA6:0000000000000000 $t
+     /tmp/cc2zLr4F.s:550    .text.GPIO_CONFIG_PA5_PA6:0000000000000000 GPIO_CONFIG_PA5_PA6
+     /tmp/cc2zLr4F.s:598    .text.GPIO_CONFIG_PA5_PA6:0000000000000034 $d
+     /tmp/cc2zLr4F.s:603    .text.GPIO_PIN_INPUT_PC0:0000000000000000 $t
+     /tmp/cc2zLr4F.s:609    .text.GPIO_PIN_INPUT_PC0:0000000000000000 GPIO_PIN_INPUT_PC0
+     /tmp/cc2zLr4F.s:679    .text.GPIO_PIN_INPUT_PC0:0000000000000058 $d
+
+UNDEFINED SYMBOLS
+strstr
+printf
+HAL_Delay
