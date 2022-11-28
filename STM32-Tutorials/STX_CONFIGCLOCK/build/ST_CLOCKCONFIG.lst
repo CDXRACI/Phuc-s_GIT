@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccgxF2Pb.s 			page 1
+ARM GAS  /tmp/cc9Pple7.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -44,181 +44,193 @@ ARM GAS  /tmp/ccgxF2Pb.s 			page 1
    9:Core/Src/ST_CLOCKCONFIG.c **** RCC->APB1ENR |= (1 << 28);
   34              		.loc 1 9 1 view .LVU1
   35              		.loc 1 9 14 is_stmt 0 view .LVU2
-  36 0000 1A4B     		ldr	r3, .L5
+  36 0000 1B4B     		ldr	r3, .L5
   37 0002 1A6C     		ldr	r2, [r3, #64]
   38 0004 42F08052 		orr	r2, r2, #268435456
   39 0008 1A64     		str	r2, [r3, #64]
-  10:Core/Src/ST_CLOCKCONFIG.c **** RCC->CR |= 1<<16;  
+  10:Core/Src/ST_CLOCKCONFIG.c **** RCC->APB2ENR |= (1 << 14);
   40              		.loc 1 10 1 is_stmt 1 view .LVU3
-  41              		.loc 1 10 9 is_stmt 0 view .LVU4
-  42 000a 1A68     		ldr	r2, [r3]
-  43 000c 42F48032 		orr	r2, r2, #65536
-  44 0010 1A60     		str	r2, [r3]
+  41              		.loc 1 10 14 is_stmt 0 view .LVU4
+  42 000a 5A6C     		ldr	r2, [r3, #68]
+  43 000c 42F48042 		orr	r2, r2, #16384
+  44 0010 5A64     		str	r2, [r3, #68]
   11:Core/Src/ST_CLOCKCONFIG.c **** 
-  12:Core/Src/ST_CLOCKCONFIG.c **** while (!(RCC->CR & (1<<17)));
+  12:Core/Src/ST_CLOCKCONFIG.c **** RCC->CR |= 1<<16;  
   45              		.loc 1 12 1 is_stmt 1 view .LVU5
-  46              	.L2:
-ARM GAS  /tmp/ccgxF2Pb.s 			page 2
+  46              		.loc 1 12 9 is_stmt 0 view .LVU6
+ARM GAS  /tmp/cc9Pple7.s 			page 2
 
 
-  47              		.loc 1 12 29 discriminator 1 view .LVU6
-  48              		.loc 1 12 7 discriminator 1 view .LVU7
-  49              		.loc 1 12 13 is_stmt 0 discriminator 1 view .LVU8
-  50 0012 164B     		ldr	r3, .L5
-  51 0014 1B68     		ldr	r3, [r3]
-  52              		.loc 1 12 7 discriminator 1 view .LVU9
-  53 0016 13F4003F 		tst	r3, #131072
-  54 001a FAD0     		beq	.L2
+  47 0012 1A68     		ldr	r2, [r3]
+  48 0014 42F48032 		orr	r2, r2, #65536
+  49 0018 1A60     		str	r2, [r3]
   13:Core/Src/ST_CLOCKCONFIG.c **** 
-  14:Core/Src/ST_CLOCKCONFIG.c **** 
-  15:Core/Src/ST_CLOCKCONFIG.c **** RCC->CFGR &= ~(1<<4);
-  55              		.loc 1 15 1 is_stmt 1 view .LVU10
-  56              		.loc 1 15 11 is_stmt 0 view .LVU11
-  57 001c 134B     		ldr	r3, .L5
-  58 001e 9A68     		ldr	r2, [r3, #8]
-  59 0020 22F01002 		bic	r2, r2, #16
-  60 0024 9A60     		str	r2, [r3, #8]
-  16:Core/Src/ST_CLOCKCONFIG.c **** 	
-  17:Core/Src/ST_CLOCKCONFIG.c **** 
-  18:Core/Src/ST_CLOCKCONFIG.c **** RCC->CFGR |= (4<<10);
-  61              		.loc 1 18 1 is_stmt 1 view .LVU12
-  62              		.loc 1 18 11 is_stmt 0 view .LVU13
-  63 0026 9A68     		ldr	r2, [r3, #8]
-  64 0028 42F48052 		orr	r2, r2, #4096
-  65 002c 9A60     		str	r2, [r3, #8]
-  19:Core/Src/ST_CLOCKCONFIG.c **** 	
-  20:Core/Src/ST_CLOCKCONFIG.c **** 
-  21:Core/Src/ST_CLOCKCONFIG.c **** RCC->CFGR &= ~(1<<13);
-  66              		.loc 1 21 1 is_stmt 1 view .LVU14
-  67              		.loc 1 21 11 is_stmt 0 view .LVU15
-  68 002e 9A68     		ldr	r2, [r3, #8]
-  69 0030 22F40052 		bic	r2, r2, #8192
-  70 0034 9A60     		str	r2, [r3, #8]
-  22:Core/Src/ST_CLOCKCONFIG.c **** #define PLL_M 	4
-  23:Core/Src/ST_CLOCKCONFIG.c **** #define PLL_N 	100
-  24:Core/Src/ST_CLOCKCONFIG.c **** #define PLL_P 	2  
+  14:Core/Src/ST_CLOCKCONFIG.c **** while (!(RCC->CR & (1<<17)));
+  50              		.loc 1 14 1 is_stmt 1 view .LVU7
+  51              	.L2:
+  52              		.loc 1 14 29 discriminator 1 view .LVU8
+  53              		.loc 1 14 7 discriminator 1 view .LVU9
+  54              		.loc 1 14 13 is_stmt 0 discriminator 1 view .LVU10
+  55 001a 154B     		ldr	r3, .L5
+  56 001c 1B68     		ldr	r3, [r3]
+  57              		.loc 1 14 7 discriminator 1 view .LVU11
+  58 001e 13F4003F 		tst	r3, #131072
+  59 0022 FAD0     		beq	.L2
+  15:Core/Src/ST_CLOCKCONFIG.c **** 
+  16:Core/Src/ST_CLOCKCONFIG.c **** #define PLL_M 	4
+  17:Core/Src/ST_CLOCKCONFIG.c **** #define PLL_N 	100
+  18:Core/Src/ST_CLOCKCONFIG.c **** #define PLL_P 	2  
+  19:Core/Src/ST_CLOCKCONFIG.c **** 
+  20:Core/Src/ST_CLOCKCONFIG.c **** RCC->PLLCFGR |= (PLL_M <<0)   |\
+  60              		.loc 1 20 1 is_stmt 1 view .LVU12
+  61              		.loc 1 20 14 is_stmt 0 view .LVU13
+  62 0024 124B     		ldr	r3, .L5
+  63 0026 5968     		ldr	r1, [r3, #4]
+  64 0028 124A     		ldr	r2, .L5+4
+  65 002a 0A43     		orrs	r2, r2, r1
+  66 002c 5A60     		str	r2, [r3, #4]
+  21:Core/Src/ST_CLOCKCONFIG.c ****                 (PLL_N << 6)  |\
+  22:Core/Src/ST_CLOCKCONFIG.c ****                 (0<<16)       |\
+  23:Core/Src/ST_CLOCKCONFIG.c ****                 (1<<17)       |\
+  24:Core/Src/ST_CLOCKCONFIG.c ****                 (1<<22);
   25:Core/Src/ST_CLOCKCONFIG.c **** 
-  26:Core/Src/ST_CLOCKCONFIG.c **** RCC->PLLCFGR = (PLL_M <<0) | (PLL_N << 6) | (PLL_P <<16) | (1<<22);
-  71              		.loc 1 26 1 is_stmt 1 view .LVU16
-  72              		.loc 1 26 14 is_stmt 0 view .LVU17
-  73 0036 0E4A     		ldr	r2, .L5+4
-  74 0038 5A60     		str	r2, [r3, #4]
-  27:Core/Src/ST_CLOCKCONFIG.c **** RCC->CR |= (1<<24);
-  75              		.loc 1 27 1 is_stmt 1 view .LVU18
-  76              		.loc 1 27 9 is_stmt 0 view .LVU19
-  77 003a 1A68     		ldr	r2, [r3]
-  78 003c 42F08072 		orr	r2, r2, #16777216
-  79 0040 1A60     		str	r2, [r3]
-  28:Core/Src/ST_CLOCKCONFIG.c **** while (!(RCC->CR & (1<<25)));
-  80              		.loc 1 28 1 is_stmt 1 view .LVU20
-  81              	.L3:
-  82              		.loc 1 28 29 discriminator 1 view .LVU21
-  83              		.loc 1 28 7 discriminator 1 view .LVU22
-  84              		.loc 1 28 13 is_stmt 0 discriminator 1 view .LVU23
-  85 0042 0A4B     		ldr	r3, .L5
-  86 0044 1B68     		ldr	r3, [r3]
-  87              		.loc 1 28 7 discriminator 1 view .LVU24
-ARM GAS  /tmp/ccgxF2Pb.s 			page 3
-
-
-  88 0046 13F0007F 		tst	r3, #33554432
-  89 004a FAD0     		beq	.L3
-  29:Core/Src/ST_CLOCKCONFIG.c **** RCC->CFGR |= (2<<0);
-  90              		.loc 1 29 1 is_stmt 1 view .LVU25
-  91              		.loc 1 29 11 is_stmt 0 view .LVU26
-  92 004c 074A     		ldr	r2, .L5
-  93 004e 9368     		ldr	r3, [r2, #8]
-  94 0050 43F00203 		orr	r3, r3, #2
-  95 0054 9360     		str	r3, [r2, #8]
-  30:Core/Src/ST_CLOCKCONFIG.c **** while (!(RCC->CFGR & (2<<2)));
-  96              		.loc 1 30 1 is_stmt 1 view .LVU27
-  97              	.L4:
-  98              		.loc 1 30 30 discriminator 1 view .LVU28
-  99              		.loc 1 30 7 discriminator 1 view .LVU29
- 100              		.loc 1 30 13 is_stmt 0 discriminator 1 view .LVU30
- 101 0056 054B     		ldr	r3, .L5
- 102 0058 9B68     		ldr	r3, [r3, #8]
- 103              		.loc 1 30 7 discriminator 1 view .LVU31
- 104 005a 13F0080F 		tst	r3, #8
- 105 005e FAD0     		beq	.L4
-  31:Core/Src/ST_CLOCKCONFIG.c **** RCC->APB2ENR |= (1<<14);
- 106              		.loc 1 31 1 is_stmt 1 view .LVU32
- 107              		.loc 1 31 14 is_stmt 0 view .LVU33
- 108 0060 024A     		ldr	r2, .L5
- 109 0062 536C     		ldr	r3, [r2, #68]
- 110 0064 43F48043 		orr	r3, r3, #16384
- 111 0068 5364     		str	r3, [r2, #68]
+  26:Core/Src/ST_CLOCKCONFIG.c **** 
+  27:Core/Src/ST_CLOCKCONFIG.c **** RCC->CFGR &= ~(1<<4);
+  67              		.loc 1 27 1 is_stmt 1 view .LVU14
+  68              		.loc 1 27 11 is_stmt 0 view .LVU15
+  69 002e 9A68     		ldr	r2, [r3, #8]
+  70 0030 22F01002 		bic	r2, r2, #16
+  71 0034 9A60     		str	r2, [r3, #8]
+  28:Core/Src/ST_CLOCKCONFIG.c **** 	
+  29:Core/Src/ST_CLOCKCONFIG.c **** 
+  30:Core/Src/ST_CLOCKCONFIG.c **** RCC->CFGR |= (4<<10);
+  72              		.loc 1 30 1 is_stmt 1 view .LVU16
+  73              		.loc 1 30 11 is_stmt 0 view .LVU17
+  74 0036 9A68     		ldr	r2, [r3, #8]
+  75 0038 42F48052 		orr	r2, r2, #4096
+  76 003c 9A60     		str	r2, [r3, #8]
+  31:Core/Src/ST_CLOCKCONFIG.c **** 	
   32:Core/Src/ST_CLOCKCONFIG.c **** 
-  33:Core/Src/ST_CLOCKCONFIG.c **** 
-  34:Core/Src/ST_CLOCKCONFIG.c **** }
- 112              		.loc 1 34 1 view .LVU34
- 113 006a 7047     		bx	lr
- 114              	.L6:
- 115              		.align	2
- 116              	.L5:
- 117 006c 00380240 		.word	1073887232
- 118 0070 04194200 		.word	4331780
- 119              		.cfi_endproc
- 120              	.LFE130:
- 122              		.section	.text.INIT_INTERRUPT,"ax",%progbits
- 123              		.align	1
- 124              		.global	INIT_INTERRUPT
- 125              		.syntax unified
- 126              		.thumb
- 127              		.thumb_func
- 129              	INIT_INTERRUPT:
- 130              	.LFB131:
+  33:Core/Src/ST_CLOCKCONFIG.c **** RCC->CFGR &= ~(1<<13);
+  77              		.loc 1 33 1 is_stmt 1 view .LVU18
+  78              		.loc 1 33 11 is_stmt 0 view .LVU19
+  79 003e 9A68     		ldr	r2, [r3, #8]
+  80 0040 22F40052 		bic	r2, r2, #8192
+  81 0044 9A60     		str	r2, [r3, #8]
+  34:Core/Src/ST_CLOCKCONFIG.c **** 
+ARM GAS  /tmp/cc9Pple7.s 			page 3
+
+
   35:Core/Src/ST_CLOCKCONFIG.c **** 
-  36:Core/Src/ST_CLOCKCONFIG.c **** void INIT_INTERRUPT(void)
-  37:Core/Src/ST_CLOCKCONFIG.c **** {
- 131              		.loc 1 37 1 is_stmt 1 view -0
- 132              		.cfi_startproc
- 133              		@ args = 0, pretend = 0, frame = 0
- 134              		@ frame_needed = 0, uses_anonymous_args = 0
- 135              		@ link register save eliminated.
-  38:Core/Src/ST_CLOCKCONFIG.c **** 
-  39:Core/Src/ST_CLOCKCONFIG.c **** RCC->APB2ENR |= (1<<14);  // Enable SYSCNFG
-ARM GAS  /tmp/ccgxF2Pb.s 			page 4
-
-
- 136              		.loc 1 39 1 view .LVU36
- 137              		.loc 1 39 14 is_stmt 0 view .LVU37
- 138 0000 044B     		ldr	r3, .L8
- 139 0002 5A6C     		ldr	r2, [r3, #68]
- 140 0004 42F48042 		orr	r2, r2, #16384
- 141 0008 5A64     		str	r2, [r3, #68]
-  40:Core/Src/ST_CLOCKCONFIG.c **** RCC->APB2ENR |= (1<<0);  // Enable AFIO CLOCK
- 142              		.loc 1 40 1 is_stmt 1 view .LVU38
- 143              		.loc 1 40 14 is_stmt 0 view .LVU39
- 144 000a 5A6C     		ldr	r2, [r3, #68]
- 145 000c 42F00102 		orr	r2, r2, #1
- 146 0010 5A64     		str	r2, [r3, #68]
-  41:Core/Src/ST_CLOCKCONFIG.c **** 
+  36:Core/Src/ST_CLOCKCONFIG.c **** 
+  37:Core/Src/ST_CLOCKCONFIG.c **** 
+  38:Core/Src/ST_CLOCKCONFIG.c **** RCC->CR |= (1<<24);
+  82              		.loc 1 38 1 is_stmt 1 view .LVU20
+  83              		.loc 1 38 9 is_stmt 0 view .LVU21
+  84 0046 1A68     		ldr	r2, [r3]
+  85 0048 42F08072 		orr	r2, r2, #16777216
+  86 004c 1A60     		str	r2, [r3]
+  39:Core/Src/ST_CLOCKCONFIG.c **** while (!(RCC->CR & (1<<25)));
+  87              		.loc 1 39 1 is_stmt 1 view .LVU22
+  88              	.L3:
+  89              		.loc 1 39 29 discriminator 1 view .LVU23
+  90              		.loc 1 39 7 discriminator 1 view .LVU24
+  91              		.loc 1 39 13 is_stmt 0 discriminator 1 view .LVU25
+  92 004e 084B     		ldr	r3, .L5
+  93 0050 1B68     		ldr	r3, [r3]
+  94              		.loc 1 39 7 discriminator 1 view .LVU26
+  95 0052 13F0007F 		tst	r3, #33554432
+  96 0056 FAD0     		beq	.L3
+  40:Core/Src/ST_CLOCKCONFIG.c **** RCC->CFGR |= (2<<0);
+  97              		.loc 1 40 1 is_stmt 1 view .LVU27
+  98              		.loc 1 40 11 is_stmt 0 view .LVU28
+  99 0058 054A     		ldr	r2, .L5
+ 100 005a 9368     		ldr	r3, [r2, #8]
+ 101 005c 43F00203 		orr	r3, r3, #2
+ 102 0060 9360     		str	r3, [r2, #8]
+  41:Core/Src/ST_CLOCKCONFIG.c **** while (!(RCC->CFGR & (2<<2)));
+ 103              		.loc 1 41 1 is_stmt 1 view .LVU29
+ 104              	.L4:
+ 105              		.loc 1 41 30 discriminator 1 view .LVU30
+ 106              		.loc 1 41 7 discriminator 1 view .LVU31
+ 107              		.loc 1 41 13 is_stmt 0 discriminator 1 view .LVU32
+ 108 0062 034B     		ldr	r3, .L5
+ 109 0064 9B68     		ldr	r3, [r3, #8]
+ 110              		.loc 1 41 7 discriminator 1 view .LVU33
+ 111 0066 13F0080F 		tst	r3, #8
+ 112 006a FAD0     		beq	.L4
   42:Core/Src/ST_CLOCKCONFIG.c **** 
-  43:Core/Src/ST_CLOCKCONFIG.c **** };...
- 147              		.loc 1 43 1 view .LVU40
- 148 0012 7047     		bx	lr
- 149              	.L9:
- 150              		.align	2
- 151              	.L8:
- 152 0014 00380240 		.word	1073887232
- 153              		.cfi_endproc
- 154              	.LFE131:
- 156              		.text
- 157              	.Letext0:
- 158              		.file 2 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default
- 159              		.file 3 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
- 160              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
-ARM GAS  /tmp/ccgxF2Pb.s 			page 5
+  43:Core/Src/ST_CLOCKCONFIG.c **** 
+  44:Core/Src/ST_CLOCKCONFIG.c **** 
+  45:Core/Src/ST_CLOCKCONFIG.c **** }
+ 113              		.loc 1 45 1 view .LVU34
+ 114 006c 7047     		bx	lr
+ 115              	.L6:
+ 116 006e 00BF     		.align	2
+ 117              	.L5:
+ 118 0070 00380240 		.word	1073887232
+ 119 0074 04194200 		.word	4331780
+ 120              		.cfi_endproc
+ 121              	.LFE130:
+ 123              		.section	.text.INIT_INTERRUPT,"ax",%progbits
+ 124              		.align	1
+ 125              		.global	INIT_INTERRUPT
+ 126              		.syntax unified
+ 127              		.thumb
+ 128              		.thumb_func
+ARM GAS  /tmp/cc9Pple7.s 			page 4
+
+
+ 130              	INIT_INTERRUPT:
+ 131              	.LFB131:
+  46:Core/Src/ST_CLOCKCONFIG.c **** 
+  47:Core/Src/ST_CLOCKCONFIG.c **** void INIT_INTERRUPT(void)
+  48:Core/Src/ST_CLOCKCONFIG.c **** {
+ 132              		.loc 1 48 1 is_stmt 1 view -0
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ 136              		@ link register save eliminated.
+  49:Core/Src/ST_CLOCKCONFIG.c **** 
+  50:Core/Src/ST_CLOCKCONFIG.c **** RCC->APB2ENR |= (1<<14);  // Enable SYSCNFG
+ 137              		.loc 1 50 1 view .LVU36
+ 138              		.loc 1 50 14 is_stmt 0 view .LVU37
+ 139 0000 044B     		ldr	r3, .L8
+ 140 0002 5A6C     		ldr	r2, [r3, #68]
+ 141 0004 42F48042 		orr	r2, r2, #16384
+ 142 0008 5A64     		str	r2, [r3, #68]
+  51:Core/Src/ST_CLOCKCONFIG.c **** RCC->APB2ENR |= (1<<0);  // Enable AFIO CLOCK
+ 143              		.loc 1 51 1 is_stmt 1 view .LVU38
+ 144              		.loc 1 51 14 is_stmt 0 view .LVU39
+ 145 000a 5A6C     		ldr	r2, [r3, #68]
+ 146 000c 42F00102 		orr	r2, r2, #1
+ 147 0010 5A64     		str	r2, [r3, #68]
+  52:Core/Src/ST_CLOCKCONFIG.c **** 
+  53:Core/Src/ST_CLOCKCONFIG.c **** 
+  54:Core/Src/ST_CLOCKCONFIG.c **** };...
+ 148              		.loc 1 54 1 view .LVU40
+ 149 0012 7047     		bx	lr
+ 150              	.L9:
+ 151              		.align	2
+ 152              	.L8:
+ 153 0014 00380240 		.word	1073887232
+ 154              		.cfi_endproc
+ 155              	.LFE131:
+ 157              		.text
+ 158              	.Letext0:
+ 159              		.file 2 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/machine/_default
+ 160              		.file 3 "/home/cdp/Downloads/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/sys/_stdint.h"
+ 161              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"
+ARM GAS  /tmp/cc9Pple7.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ST_CLOCKCONFIG.c
-     /tmp/ccgxF2Pb.s:20     .text.SYS_CONFIG_CLOCK:0000000000000000 $t
-     /tmp/ccgxF2Pb.s:26     .text.SYS_CONFIG_CLOCK:0000000000000000 SYS_CONFIG_CLOCK
-     /tmp/ccgxF2Pb.s:117    .text.SYS_CONFIG_CLOCK:000000000000006c $d
-     /tmp/ccgxF2Pb.s:123    .text.INIT_INTERRUPT:0000000000000000 $t
-     /tmp/ccgxF2Pb.s:129    .text.INIT_INTERRUPT:0000000000000000 INIT_INTERRUPT
-     /tmp/ccgxF2Pb.s:152    .text.INIT_INTERRUPT:0000000000000014 $d
+     /tmp/cc9Pple7.s:20     .text.SYS_CONFIG_CLOCK:0000000000000000 $t
+     /tmp/cc9Pple7.s:26     .text.SYS_CONFIG_CLOCK:0000000000000000 SYS_CONFIG_CLOCK
+     /tmp/cc9Pple7.s:118    .text.SYS_CONFIG_CLOCK:0000000000000070 $d
+     /tmp/cc9Pple7.s:124    .text.INIT_INTERRUPT:0000000000000000 $t
+     /tmp/cc9Pple7.s:130    .text.INIT_INTERRUPT:0000000000000000 INIT_INTERRUPT
+     /tmp/cc9Pple7.s:153    .text.INIT_INTERRUPT:0000000000000014 $d
 
 NO UNDEFINED SYMBOLS
