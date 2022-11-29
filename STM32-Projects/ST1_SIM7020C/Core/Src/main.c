@@ -17,15 +17,17 @@ int main(void)
 
   MX_GPIO_Init();
   USART1_CONFIG();
-  AT_SEND_COMMAND();
 
-
+HAL_Delay(10000);
+AT_SEND_COMMAND();
 
   while (1)
   {
 
-
-
+SEND_SMS();
+  
+  HAL_Delay(5000);
+  //SEND_SMS();
 //  send_st2(__MODULE_SIM7020C_TESTING_FW2.ATI);
 //   HAL_Delay(1000);
 //  send_st2(__MODULE_SIM7020C_TESTING_FW2.ATCGMI);

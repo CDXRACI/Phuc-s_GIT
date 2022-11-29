@@ -39,6 +39,16 @@ typedef struct __MODULE_SIM7020C_TESTING
             char *AT;
             char *ATI;
             char *ATCGMI;
+            char *AT_CPIN;
+            char *AT_CGREG;
+            char *AT_COPS;
+            char *AT_CSQ;
+            char *ATD;
+            char *ATH;
+            char *AT_CMGF;
+            char *AT_CMGS;
+            char *AT_CNMI;
+            char *AT_CFUN;
 
 
 }MODULE_SIM7020C_TESTING;
@@ -47,9 +57,14 @@ extern MODULE_SIM7020C_TESTING __MODULE_SIM7020C_TESTING_FW;
 
 void AT_SEND_COMMAND(void);
 
+void CALLING_PHONE(void);
+
+void SEND_SMS(void);
+
 void USART1_CONFIG(void);
 
 void SEND_STRING(char *str);
+
 
 
 #ifdef __cplusplus
